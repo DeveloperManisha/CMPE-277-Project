@@ -1,5 +1,6 @@
 package com.sjsu.food4u;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +20,8 @@ public class demoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 IdentityManager.getDefaultIdentityManager().signOut();
+                Intent intent = new Intent(demoActivity.this,SigninActivity.class);
+                demoActivity.this.startActivity(intent);
             }
         });
     }
