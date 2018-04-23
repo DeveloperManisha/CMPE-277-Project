@@ -24,32 +24,5 @@ public class SignupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
 
 
-        AWSMobileClient.getInstance().initialize(this, new AWSStartupHandler() {
-            @Override
-            public void onComplete(AWSStartupResult awsStartupResult) {
-
-                // Obtain the reference to the AWSCredentialsProvider and AWSConfiguration objects
-                credentialsProvider = AWSMobileClient.getInstance().getCredentialsProvider();
-                configuration = AWSMobileClient.getInstance().getConfiguration();
-
-                // Use IdentityManager#getUserID to fetch the identity id.
-                IdentityManager.getDefaultIdentityManager().getUserID(new IdentityHandler() {
-                    @Override
-                    public void onIdentityId(String identityId) {
-                        Log.d("YourMainActivity", "Identity ID = " + identityId);
-
-                        // Use IdentityManager#getCachedUserID to
-                        //  fetch the locally cached identity id.
-                        final String cachedIdentityId =
-                                IdentityManager.getDefaultIdentityManager().getCachedUserID();
-                    }
-
-                    @Override
-                    public void handleError(Exception exception) {
-                        Log.d("YourMainActivity", "Error in retrieving the identity" + exception);
-                    }
-                });
-            }
-        }).execute();
     }
 }
