@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Food4U</string>
+    <string name="facebook_app_id">182083675941853</string>
+    <string name="fb_login_protocol_scheme">fb182083675941853</string>
+</resources>
