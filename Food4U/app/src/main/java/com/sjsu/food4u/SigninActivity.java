@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.amazonaws.ClientConfiguration;
+import com.amazonaws.auth.CognitoCachingCredentialsProvider;
 import com.amazonaws.mobile.auth.core.IdentityManager;
 import com.amazonaws.mobile.auth.core.SignInStateChangeListener;
 import com.amazonaws.mobile.auth.ui.SignInUI;
@@ -17,6 +19,7 @@ public class SigninActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
+
         // Add a call to initialize AWSMobileClient
         AWSMobileClient.getInstance().initialize(this, new AWSStartupHandler() {
             @Override
@@ -25,11 +28,16 @@ public class SigninActivity extends AppCompatActivity {
                 signin.login(SigninActivity.this, demoActivity.class).execute();
             }
         }).execute();
+
         IdentityManager.getDefaultIdentityManager().addSignInStateChangeListener(new SignInStateChangeListener() {
             @Override
             // Sign-in listener
             public void onUserSignedIn() {
-                Log.d("SIGNIN", "User Signed In");
+                Log.d("SIGNIN**********", "User Signed In");
+
+                // trial
+
+
             }
 
             // Sign-out listener
@@ -37,7 +45,7 @@ public class SigninActivity extends AppCompatActivity {
             public void onUserSignedOut() {
 
                 // return to the sign-in screen upon sign-out
-                Log.d("SIGNOUT", "User Signed Out");
+                Log.d("SIGNOUT*********", "User Signed Out");
             }
         });
     }

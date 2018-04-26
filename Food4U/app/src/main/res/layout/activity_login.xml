@@ -11,14 +11,14 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/buttonLayout"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="138dp"
-        android:text=""
-        android:textStyle="italic"
+        android:layout_marginBottom="43dp"
+        android:text="Sign In /Sign up"
         android:textAlignment="center"
         android:textColor="@color/colorOlive"
-        android:textSize="50dp" />
+        android:textSize="30dp"
+        android:textStyle="italic" />
 
     <LinearLayout
         android:id="@+id/buttonLayout"
@@ -26,30 +26,30 @@
         android:layout_width="fill_parent"
         android:layout_alignParentBottom="true">
 
-    <Button
-        android:id="@+id/signup"
-        android:layout_height="wrap_content"
-        android:layout_width="fill_parent"
-        android:layout_weight="1"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="25dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:background="@color/colorOlive"
-        android:text="SignUp" />
+        <Button
+            android:id="@+id/admin"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="25dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@color/colorOlive"
+            android:text="Admin" />
 
-    <Button
-        android:id="@+id/signin"
-        android:layout_height="wrap_content"
-        android:layout_width="fill_parent"
-        android:layout_weight="1"
-        android:layout_alignBaseline="@+id/signup"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="25dp"
-        android:layout_marginRight="5dp"
-        android:layout_toRightOf="@+id/signup"
-        android:background="@color/colorOlive"
-        android:text="SignIn" />
+        <Button
+            android:id="@+id/user"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/signup"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="25dp"
+            android:layout_marginRight="5dp"
+            android:layout_toRightOf="@+id/signup"
+            android:layout_weight="1"
+            android:background="@color/colorOlive"
+            android:text="user" />
     </LinearLayout>
 
 </RelativeLayout>

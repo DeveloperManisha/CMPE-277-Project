@@ -1,33 +1,38 @@
 package com.sjsu.food4u;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 public class LoginActivity extends AppCompatActivity {
 
-    Button signup;
-    Button signin;
+    Button admin;
+    Button user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        signup = findViewById(R.id.signup);
-        signin = findViewById(R.id.signin);
-        signup.setOnClickListener(signupActionHandler);
-        signin.setOnClickListener(signinActionHandler);
+
+        //AWSProvider.initialize(getApplicationContext());
+
+        admin = findViewById(R.id.admin);
+        user = findViewById(R.id.user);
+        admin.setOnClickListener(adminActionHandler);
+        user.setOnClickListener(userActionHandler);
     }
 
-    View.OnClickListener signupActionHandler = new View.OnClickListener() {
+    View.OnClickListener adminActionHandler = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             Intent intent = new Intent(LoginActivity.this,SignupActivity.class);
             LoginActivity.this.startActivity(intent);
         }
     };
-    View.OnClickListener signinActionHandler = new View.OnClickListener() {
+    View.OnClickListener userActionHandler = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             Intent intent = new Intent(LoginActivity.this,SigninActivity.class);
