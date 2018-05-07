@@ -19,12 +19,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SignupActivity">
+        <activity android:name=".AdminActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="cmpe.sjsu.food4u.LoginActivity" />
         </activity>
-        <activity android:name=".SigninActivity">
+        <activity android:name=".UserActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="cmpe.sjsu.food4u.LoginActivity" />

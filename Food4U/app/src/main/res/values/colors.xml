@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimary">#b5a600</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="colorOlive">#B5A600</color>
+    <color name="colorOlive">#b5a600</color>
     <color name="colorComplimentry">#edf4c3</color>
     <color name="colorTableBright">#c5d168</color>
     <color name="colorTableDim">#e5e8ce</color>

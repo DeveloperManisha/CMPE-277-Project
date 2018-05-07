@@ -20,7 +20,7 @@ public class demoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 IdentityManager.getDefaultIdentityManager().signOut();
-                Intent intent = new Intent(demoActivity.this,SigninActivity.class);
+                Intent intent = new Intent(demoActivity.this,UserActivity.class);
                 demoActivity.this.startActivity(intent);
             }
         });

@@ -26,14 +26,14 @@ public class LoginActivity extends AppCompatActivity {
     View.OnClickListener adminActionHandler = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Intent intent = new Intent(LoginActivity.this,SignupActivity.class);
+            Intent intent = new Intent(LoginActivity.this,AdminActivity.class);
             LoginActivity.this.startActivity(intent);
         }
     };
     View.OnClickListener userActionHandler = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Intent intent = new Intent(LoginActivity.this,SigninActivity.class);
+            Intent intent = new Intent(LoginActivity.this,UserActivity.class);
             LoginActivity.this.startActivity(intent);
         }
     };
