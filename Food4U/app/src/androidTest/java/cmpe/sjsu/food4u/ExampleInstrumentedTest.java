@@ -1,4 +1,4 @@
-package com.sjsu.food4u;
+package cmpe.sjsu.food4u;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

@@ -1,4 +1,4 @@
-package com.sjsu.food4u;
+package cmpe.sjsu.food4u;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

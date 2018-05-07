@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.sjsu.food4u.SigninActivity">
+    tools:context="cmpe.sjsu.food4u.SigninActivity">
 
 </android.support.constraint.ConstraintLayout>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context="com.sjsu.food4u.LoginActivity">
+    tools:context="cmpe.sjsu.food4u.LoginActivity">
 
     <TextView
         android:id="@+id/textView"

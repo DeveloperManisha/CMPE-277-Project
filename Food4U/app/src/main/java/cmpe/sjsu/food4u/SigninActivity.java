@@ -1,11 +1,9 @@
-package com.sjsu.food4u;
+package cmpe.sjsu.food4u;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.amazonaws.ClientConfiguration;
-import com.amazonaws.auth.CognitoCachingCredentialsProvider;
 import com.amazonaws.mobile.auth.core.IdentityManager;
 import com.amazonaws.mobile.auth.core.SignInStateChangeListener;
 import com.amazonaws.mobile.auth.ui.SignInUI;
