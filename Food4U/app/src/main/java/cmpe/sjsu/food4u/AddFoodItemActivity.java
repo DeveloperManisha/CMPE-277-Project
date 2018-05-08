@@ -30,6 +30,7 @@ public class AddFoodItemActivity extends AppCompatActivity {
     private EditText price;
     private EditText calories;
     private EditText time;
+    private EditText name;
     private Button add;
     private Button uploadImage;
     private FirebaseDatabase database;
@@ -47,6 +48,7 @@ public class AddFoodItemActivity extends AppCompatActivity {
         price = (EditText)findViewById(R.id.unitPrice);
         calories=(EditText)findViewById(R.id.calories);
         time=(EditText)findViewById(R.id.time);
+        name=(EditText)findViewById(R.id.name);
         add = findViewById(R.id.addFoodItem);
 
         database = FirebaseDatabase.getInstance();
@@ -59,8 +61,8 @@ public class AddFoodItemActivity extends AppCompatActivity {
                     uploadPictureToFirebase();
                 else
                     imageid="";
-                // ToDo set dynamic values
-                FoodItem f = new FoodItem("Dessert","Gulabjamun",imageid,10.00,100,30);
+
+                FoodItem f = new FoodItem(category.getText().toString(),name.getText().toString(),imageid,Double.parseDouble(price.getText().toString()),Integer.parseInt(calories.getText().toString()),Integer.parseInt(time.getText().toString()));
                 dbReference.push().setValue(f);
                 Intent intent = new Intent(AddFoodItemActivity.this,RestaurantActivity.class);
                 AddFoodItemActivity.this.startActivity(intent);

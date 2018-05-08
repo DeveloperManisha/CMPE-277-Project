@@ -22,14 +22,19 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-//import com.google.firebase.database.ChildEventListener;
-//import com.google.firebase.database.DataSnapshot;
-//import com.google.firebase.database.DatabaseError;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -53,7 +58,7 @@ public class RestaurantActivity extends AppCompatActivity
 
         fireBaseAnonymousSigninSetup();
         database = FirebaseDatabase.getInstance();
-        dbReference = database.getReference("Menu");
+        dbReference = database.getReference("MenuItems");
 
         firebaseStorage = FirebaseStorage.getInstance();
         storageReference = firebaseStorage.getReference();
@@ -177,7 +182,7 @@ public class RestaurantActivity extends AppCompatActivity
         rLayoutManager = new LinearLayoutManager(this);
         categoryMenu.setLayoutManager(rLayoutManager);
 
-        Query query = FirebaseDatabase.getInstance()
+        final Query query = FirebaseDatabase.getInstance()
                 .getReference()
                 .child("MenuItems")
                 .limitToLast(50);
@@ -199,17 +204,42 @@ public class RestaurantActivity extends AppCompatActivity
 
                 // Create a reference with an initial file path and name
                 String path = "images/"+model.getPicture();
-                setDownloadUrl(path);
+                StorageReference pathReference = storageReference.child(path);
 
-                Glide.with(RestaurantActivity.this).load(foodItemImageURL).error(R.drawable.background).into(viewHolder.menuCategoryImage);
-                viewHolder.menuCategoryName.setText(model.getCategory());
+                Glide.with(RestaurantActivity.this)
+                        .using(new FirebaseImageLoader())
+                        .load(pathReference).centerCrop()
+                        .into(viewHolder.menuCategoryImage);
+                viewHolder.menuCategoryName.setText(model.getName());
+                viewHolder.menuCategoryName.setLongClickable(true);
+                viewHolder.menuCategoryName.setClickable(true);
                 final FoodItem selectedFoodItem = model;
                 viewHolder.setMenuItemOnClickListener(new MenuCategoryClickListener() {
-                                                          @Override
-                                                          public void onClick(View v, int posistion, boolean flag) {
-                                                              Toast.makeText(RestaurantActivity.this, selectedFoodItem.getCategory(),Toast.LENGTH_LONG).show();
-                                                          }
-                                                      }
+                  @Override
+                  public void onClick(View v, int posistion, boolean flag) {
+
+                      Toast.makeText(RestaurantActivity.this, selectedFoodItem.getCategory(),Toast.LENGTH_LONG).show();
+                  }
+
+                  @Override
+                  public void onLongClick(View v, int posistion, boolean flag) {
+
+                      Toast.makeText(RestaurantActivity.this, "delete",Toast.LENGTH_LONG).show();
+                      query.orderByChild("name")
+                              .equalTo(selectedFoodItem.getName())
+                              .addListenerForSingleValueEvent(new ValueEventListener() {
+                                  public void onDataChange(DataSnapshot dataSnapshot) {
+                                      if (dataSnapshot.hasChildren()) {
+                                          DataSnapshot firstChild = dataSnapshot.getChildren().iterator().next();
+                                          firstChild.getRef().removeValue();
+                                      }
+                                  }
+
+                                  public void onCancelled(DatabaseError firebaseError) {
+                                  }
+                              });
+                  }
+                  }
                 );
 
             }
@@ -244,7 +274,7 @@ public class RestaurantActivity extends AppCompatActivity
     }
     public void fireBaseAnonymousSigninSetup()
     {
-      /*  FirebaseAuth mAuth = FirebaseAuth.getInstance();
+       FirebaseAuth mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
         if (user != null) {
 
@@ -258,8 +288,9 @@ public class RestaurantActivity extends AppCompatActivity
 
                 }
             });
-        }*/
+        }
     }
+
 
 
 }
