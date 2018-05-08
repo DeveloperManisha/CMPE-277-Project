@@ -7,10 +7,19 @@ package cmpe.sjsu.food4u;
 public class FoodItem {
 
     private String category;
+    private String name;
     private String picture;
     private Double price;
     private Integer calories;
     private Integer time;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
 
     public Double getPrice() {
@@ -42,12 +51,13 @@ public class FoodItem {
 
     }
 
-    public FoodItem(String category, String picture, Double price, Integer calories, Integer time) {
+    public FoodItem(String category,String name, String picture, Double price, Integer calories, Integer time) {
         this.category = category;
         this.picture = picture;
         this.price = price;
         this.calories = calories;
         this.time = time;
+        this.name=name;
     }
 
     public String getCategory() {

@@ -24,7 +24,7 @@ public class AdminActivity extends AppCompatActivity {
                 String username = ((EditText)findViewById(R.id.username)).getText().toString();
                 String password = ((EditText)findViewById(R.id.password)).getText().toString();
                 System.out.println("Admin Username Password"+username+" "+password);
-                if(username.contentEquals("Food4UAdmin") && password.contentEquals("admin1234"))
+                if(username.contentEquals("a") && password.contentEquals("a"))
                 {
                     LoginContext.user = new User(username,true);
                     Intent intent = new Intent(AdminActivity.this,RestaurantActivity.class);

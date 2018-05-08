@@ -12,7 +12,7 @@ import android.widget.TextView;
 public class MenuViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
 
-    TextView menuCategoryImage;
+    ImageView menuCategoryImage;
     TextView  menuCategoryName;
     MenuCategoryClickListener menuCategoryClickListener;
 
