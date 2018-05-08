@@ -92,6 +92,12 @@
             android:ems="10"
             android:hint="to be added "
             android:inputType="number" />
+        <Button
+            android:id="@+id/uploadImage"
+            android:text="+"
+            android:layout_weight="0.5"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
     <LinearLayout

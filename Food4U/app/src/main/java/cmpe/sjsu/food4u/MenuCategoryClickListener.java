@@ -8,4 +8,5 @@ import android.view.View;
 
 public interface MenuCategoryClickListener {
     void onClick(View v,int posistion,boolean flag);
+    void onLongClick(View v,int posistion,boolean flag);
 }
