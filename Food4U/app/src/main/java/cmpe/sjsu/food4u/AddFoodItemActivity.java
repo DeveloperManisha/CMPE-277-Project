@@ -47,7 +47,7 @@ public class AddFoodItemActivity extends AppCompatActivity {
         picture = (EditText)findViewById(R.id.picture);
         price = (EditText)findViewById(R.id.unitPrice);
         calories=(EditText)findViewById(R.id.calories);
-        time=(EditText)findViewById(R.id.time);
+        time=(EditText)findViewById(R.id.preparationtime);
         name=(EditText)findViewById(R.id.name);
         add = findViewById(R.id.addFoodItem);
 
