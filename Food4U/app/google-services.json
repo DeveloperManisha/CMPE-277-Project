@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "581826721783",
+    "firebase_url": "https://food4u-67655.firebaseio.com",
+    "project_id": "food4u-67655",
+    "storage_bucket": "food4u-67655.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:581826721783:android:188aba3d286f3234",
+        "android_client_info": {
+          "package_name": "cmpe.sjsu.food4u"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "581826721783-n75fqji3fh8pptko0mrbuad1ivuqdelq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "cmpe.sjsu.food4u",
+            "certificate_hash": "c8b2f11c5ac60a25c8641ccc4d0773b34f380889"
+          }
+        },
+        {
+          "client_id": "581826721783-ls874rg3kq79v3lsnbpthn67ehfmoh1d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCx4k-uwvZiRWav6vpRKBBHeWra-Huh34A"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "581826721783-ls874rg3kq79v3lsnbpthn67ehfmoh1d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
