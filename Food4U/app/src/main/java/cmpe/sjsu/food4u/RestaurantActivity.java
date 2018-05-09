@@ -3,6 +3,7 @@ package cmpe.sjsu.food4u;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -21,7 +22,9 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.firebase.ui.database.FirebaseListAdapter;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -37,6 +40,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 public class RestaurantActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -47,6 +51,7 @@ public class RestaurantActivity extends AppCompatActivity
     LinearLayoutManager rLayoutManager;
     FirebaseStorage firebaseStorage;
     StorageReference storageReference;
+    FirebaseRecyclerAdapter<FoodItem,MenuViewHolder> adapter;
 
 
     @Override
@@ -78,35 +83,6 @@ public class RestaurantActivity extends AppCompatActivity
             System.out.println("***********Database is connected");
         }
         fetchAndDisplayMenuItems();
-       /* dbReference.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s){
-
-                FoodItem value = dataSnapshot.getValue(FoodItem.class);
-                System.out.println("Database is connected:"+value.getPicture());
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });*/
 
     }
     View.OnClickListener floatingButtonListener = new View.OnClickListener() {
@@ -157,7 +133,7 @@ public class RestaurantActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
+
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
@@ -188,7 +164,55 @@ public class RestaurantActivity extends AppCompatActivity
                 .limitToLast(50);
 
 
-        FirebaseRecyclerAdapter<FoodItem,MenuViewHolder> adapter =  new FirebaseRecyclerAdapter<FoodItem, MenuViewHolder>(FoodItem.class,R.layout.menu_category, MenuViewHolder.class,query) {
+        FirebaseRecyclerOptions<FoodItem> options =
+                new FirebaseRecyclerOptions.Builder<FoodItem>()
+                        .setQuery(query, FoodItem.class)
+                        .build();
+        adapter =  new FirebaseRecyclerAdapter<FoodItem, MenuViewHolder>(options) {
+
+            @Override
+            protected void onBindViewHolder(@NonNull MenuViewHolder holder, int position, @NonNull FoodItem model) {
+
+                String path = "images/"+model.getPicture();
+                StorageReference pathReference = storageReference.child(path);
+                setDownloadUrl(path);
+                GlideApp.with(RestaurantActivity.this)
+                        .load(pathReference).centerCrop()
+                        .into(holder.menuCategoryImage);
+
+                holder.menuCategoryName.setText(model.getName());
+                holder.menuCategoryName.setLongClickable(true);
+                holder.menuCategoryName.setClickable(true);
+                final FoodItem selectedFoodItem = model;
+                holder.menuCategoryName.setText( model.getName());
+                holder.setMenuItemOnClickListener(new MenuCategoryClickListener() {
+                                                          @Override
+                                                          public void onClick(View v, int posistion, boolean flag) {
+
+                                                              Toast.makeText(RestaurantActivity.this, selectedFoodItem.getCategory(),Toast.LENGTH_LONG).show();
+                                                          }
+
+                                                          @Override
+                                                          public void onLongClick(View v, int posistion, boolean flag) {
+
+                                                              Toast.makeText(RestaurantActivity.this, "delete",Toast.LENGTH_LONG).show();
+                                                              query.orderByChild("name")
+                                                                      .equalTo(selectedFoodItem.getName())
+                                                                      .addListenerForSingleValueEvent(new ValueEventListener() {
+                                                                          public void onDataChange(DataSnapshot dataSnapshot) {
+                                                                              if (dataSnapshot.hasChildren()) {
+                                                                                  DataSnapshot firstChild = dataSnapshot.getChildren().iterator().next();
+                                                                                  firstChild.getRef().removeValue();
+                                                                              }
+                                                                          }
+
+                                                                          public void onCancelled(DatabaseError firebaseError) {
+                                                                          }
+                                                                      });
+                                                          }
+                                                      }
+                );
+            }
 
             @Override
             public MenuViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -197,53 +221,6 @@ public class RestaurantActivity extends AppCompatActivity
 
                 return new MenuViewHolder(view);
             }
-            @Override
-            protected void populateViewHolder(MenuViewHolder viewHolder, FoodItem model, int position) {
-                System.out.println("************tried to populate ***************");
-                System.out.println("Hello---"+model.getPicture()+"_________"+model.getCategory());
-
-                // Create a reference with an initial file path and name
-                String path = "images/"+model.getPicture();
-                StorageReference pathReference = storageReference.child(path);
-
-                Glide.with(RestaurantActivity.this)
-                        .using(new FirebaseImageLoader())
-                        .load(pathReference).centerCrop()
-                        .into(viewHolder.menuCategoryImage);
-                viewHolder.menuCategoryName.setText(model.getName());
-                viewHolder.menuCategoryName.setLongClickable(true);
-                viewHolder.menuCategoryName.setClickable(true);
-                final FoodItem selectedFoodItem = model;
-                viewHolder.setMenuItemOnClickListener(new MenuCategoryClickListener() {
-                  @Override
-                  public void onClick(View v, int posistion, boolean flag) {
-
-                      Toast.makeText(RestaurantActivity.this, selectedFoodItem.getCategory(),Toast.LENGTH_LONG).show();
-                  }
-
-                  @Override
-                  public void onLongClick(View v, int posistion, boolean flag) {
-
-                      Toast.makeText(RestaurantActivity.this, "delete",Toast.LENGTH_LONG).show();
-                      query.orderByChild("name")
-                              .equalTo(selectedFoodItem.getName())
-                              .addListenerForSingleValueEvent(new ValueEventListener() {
-                                  public void onDataChange(DataSnapshot dataSnapshot) {
-                                      if (dataSnapshot.hasChildren()) {
-                                          DataSnapshot firstChild = dataSnapshot.getChildren().iterator().next();
-                                          firstChild.getRef().removeValue();
-                                      }
-                                  }
-
-                                  public void onCancelled(DatabaseError firebaseError) {
-                                  }
-                              });
-                  }
-                  }
-                );
-
-            }
-
         };
         categoryMenu.setAdapter(adapter);
 
@@ -261,7 +238,6 @@ public class RestaurantActivity extends AppCompatActivity
             @Override
             public void onSuccess(Uri uri) {
                 setImageUrl(uri.toString());
-                //imageUrl = uri.toString();
                 System.out.println(uri.toString());
 
             }
@@ -291,7 +267,18 @@ public class RestaurantActivity extends AppCompatActivity
         }
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        adapter.startListening();
 
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        adapter.stopListening();
+    }
 
 }
 

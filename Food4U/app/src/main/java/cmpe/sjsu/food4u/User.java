@@ -1,5 +1,7 @@
 package cmpe.sjsu.food4u;
 
+import com.google.firebase.auth.FirebaseUser;
+
 /**
  * Created by manas on 5/7/2018.
  */
@@ -7,6 +9,8 @@ package cmpe.sjsu.food4u;
 public class User {
     private String username;
     private boolean isAdmin;
+
+
 
     public  User() {
         username ="";
