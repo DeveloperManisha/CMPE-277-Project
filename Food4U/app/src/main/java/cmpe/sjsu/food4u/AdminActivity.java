@@ -35,5 +35,9 @@ public class AdminActivity extends AppCompatActivity {
             }
         });
 
+        //Sample db invoke
+        //when u pass object, id for object is automatically created
+        //Database.getInstance().setNodeOrderDetails("testNode","order2");
+
     }
 }

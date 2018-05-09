@@ -42,6 +42,7 @@ public class UserActivity extends AppCompatActivity {
             // Successfully signed in
             if (resultCode == RESULT_OK) {
                LoginContext.currentUser = FirebaseAuth.getInstance().getCurrentUser();
+               System.out.println("Logged user:"+ LoginContext.currentUser.getEmail());
                 Intent intent = new Intent(UserActivity.this,demoActivity.class);
 
                 startActivity(intent);
