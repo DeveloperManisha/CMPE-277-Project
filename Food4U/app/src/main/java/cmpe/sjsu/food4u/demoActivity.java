@@ -31,6 +31,7 @@ public class demoActivity extends AppCompatActivity {
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             public void onComplete(@NonNull Task<Void> task) {
                                 // user is now signed out
+                                LoginContext.currentUser=null;
                                 startActivity(new Intent(demoActivity.this, LoginActivity.class));
                                 finish();
                             }

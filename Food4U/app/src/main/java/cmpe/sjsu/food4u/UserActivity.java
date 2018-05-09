@@ -41,6 +41,7 @@ public class UserActivity extends AppCompatActivity {
 
             // Successfully signed in
             if (resultCode == RESULT_OK) {
+               LoginContext.currentUser = FirebaseAuth.getInstance().getCurrentUser();
                 Intent intent = new Intent(UserActivity.this,demoActivity.class);
 
                 startActivity(intent);
@@ -59,8 +60,6 @@ public class UserActivity extends AppCompatActivity {
                     return;
                 }
 
-                //showSnackbar(R.string.unknown_error);
-               // Log.e(TAG, "Sign-in error: ", response.getError());
             }
         }
     }

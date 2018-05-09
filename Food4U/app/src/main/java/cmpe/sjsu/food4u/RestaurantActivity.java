@@ -238,7 +238,6 @@ public class RestaurantActivity extends AppCompatActivity
             @Override
             public void onSuccess(Uri uri) {
                 setImageUrl(uri.toString());
-                //imageUrl = uri.toString();
                 System.out.println(uri.toString());
 
             }
@@ -267,8 +266,6 @@ public class RestaurantActivity extends AppCompatActivity
             });
         }
     }
-
-
 
     @Override
     public void onStart() {
