@@ -3,6 +3,8 @@ package cmpe.sjsu.food4u;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+
 /**
  * Created by manas on 5/9/2018.
  */
@@ -29,7 +31,7 @@ public class Database {
         ref.push().setValue(item);
         System.out.println("item is saved to database");
     }
-    public void setNodeOrderDetails(String path,String /*change type to your object class */ item ) {
+    public void setNodeOrderDetails(String path,ArrayList<CartItem>/*change type to your object class */ item ) {
         DatabaseReference ref = database.getReference(path);
         ref.push().setValue(item);
         System.out.println("order item o database");    }
