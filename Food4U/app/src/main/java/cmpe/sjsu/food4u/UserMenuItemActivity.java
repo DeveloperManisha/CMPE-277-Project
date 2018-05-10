@@ -92,16 +92,23 @@ public class UserMenuItemActivity extends AppCompatActivity {
                         .load(pathReference).centerCrop()
                         .into(holder.menuCategoryImage);
 
-                holder.menuCategoryName.setText(model.getName());
-                holder.menuCategoryName.setLongClickable(true);
-                holder.menuCategoryName.setClickable(true);
+                String textString = model.getName()+"\n\n"+"Calories :" + model.getCalories()+
+                       "\n\n"+"Preparation Time: "+model.getTime() + " min";
+
+                System.out.println("User menu description:"+textString);
+                holder.menuCategoryName.setText(textString);
+               // holder.menuCategoryName.setLongClickable(true);
+               // holder.menuCategoryName.setClickable(true);
+                //holder.menuCategoryImage.setLongClickable(true);
+               // holder.menuCategoryImage.setClickable(true);
                 final FoodItem selectedFoodItem = model;
-                holder.menuCategoryName.setText( model.getName());
                 holder.setMenuItemOnClickListener(new MenuCategoryClickListener() {
                                                       @Override
                                                       public void onClick(View v, int posistion, boolean flag) {
 
-                                                          Toast.makeText(getApplicationContext(), selectedFoodItem.getCategory(),Toast.LENGTH_LONG).show();
+                                                          Toast.makeText(getApplicationContext(), selectedFoodItem.getName(),Toast.LENGTH_LONG).show();
+                                                          CartItem item = new CartItem(selectedFoodItem,1);
+                                                          Cart.getInstance().addToCart(item);
                                                       }
 
                                                       @Override
@@ -116,9 +123,12 @@ public class UserMenuItemActivity extends AppCompatActivity {
             @Override
             public MenuViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
                 View view = LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.menu_category, parent, false);
+                        .inflate(R.layout.menu_item, parent, false);
 
                 return new MenuViewHolder(view);
+            }
+            @Override
+            public void onDataChanged() {
             }
         };
         categoryMenu.setAdapter(adapter);
