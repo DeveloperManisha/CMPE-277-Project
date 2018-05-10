@@ -51,6 +51,7 @@ public class UserRestaurantActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+        drawer.addDrawerListener(drawerListener);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -138,6 +139,7 @@ public class UserRestaurantActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),UserMenuItemActivity.class);
+                intent.putExtra("filter","dessert");
                 startActivity(intent);
             }
         });
@@ -147,6 +149,7 @@ public class UserRestaurantActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),UserMenuItemActivity.class);
+                intent.putExtra("filter","maincourse");
                 startActivity(intent);
             }
         });
@@ -155,6 +158,7 @@ public class UserRestaurantActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),UserMenuItemActivity.class);
+                intent.putExtra("filter","appetizer");
                 startActivity(intent);
             }
         });
@@ -163,9 +167,32 @@ public class UserRestaurantActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),UserMenuItemActivity.class);
+                intent.putExtra("filter","drink");
                 startActivity(intent);
             }
         });
 
     }
+    DrawerLayout.DrawerListener drawerListener = new DrawerLayout.DrawerListener() {
+        @Override
+        public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
+
+        }
+
+        @Override
+        public void onDrawerOpened(@NonNull View drawerView) {
+            setUsername();
+
+        }
+
+        @Override
+        public void onDrawerClosed(@NonNull View drawerView) {
+
+        }
+
+        @Override
+        public void onDrawerStateChanged(int newState) {
+
+        }
+    };
 }

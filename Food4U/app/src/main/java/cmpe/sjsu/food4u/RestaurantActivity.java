@@ -61,7 +61,6 @@ public class RestaurantActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        fireBaseAnonymousSigninSetup();
         database = FirebaseDatabase.getInstance();
         dbReference = database.getReference("MenuItems");
 
