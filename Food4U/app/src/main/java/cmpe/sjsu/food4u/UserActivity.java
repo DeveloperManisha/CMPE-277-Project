@@ -43,9 +43,10 @@ public class UserActivity extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                LoginContext.currentUser = FirebaseAuth.getInstance().getCurrentUser();
                System.out.println("Logged user:"+ LoginContext.currentUser.getEmail());
-                Intent intent = new Intent(UserActivity.this,demoActivity.class);
+               if(LoginContext.currentUser != null){
+                Intent intent = new Intent(UserActivity.this,UserRestaurantActivity.class);
 
-                startActivity(intent);
+                startActivity(intent);}
                // startActivity(SignedInActivity.createIntent(this, response));
                 finish();
             } else {

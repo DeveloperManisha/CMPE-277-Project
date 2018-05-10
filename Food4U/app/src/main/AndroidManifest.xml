@@ -32,14 +32,23 @@
         </activity>
         <activity android:name=".demoActivity" />
 
-
         <!-- ... -->
 
         <activity
             android:name=".RestaurantActivity"
             android:label="@string/title_activity_restaurant"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".AddFoodItemActivity"></activity>
+        <activity android:name=".AddFoodItemActivity" />
+        <activity
+            android:name=".UserRestaurantActivity"
+            android:label="@string/title_activity_user_restaurant"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".CartActivity" />
+        <activity android:name=".UserMenuItemActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cmpe.sjsu.food4u.UserRestaurantActivity" />
+        </activity>
     </application>
 
 </manifest>
