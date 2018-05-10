@@ -106,6 +106,7 @@ public class UserMenuItemActivity extends AppCompatActivity {
                                                       @Override
                                                       public void onClick(View v, int posistion, boolean flag) {
 
+                                                          String msg = selectedFoodItem.getName()+" has been added to cart";
                                                           Toast.makeText(getApplicationContext(), selectedFoodItem.getName(),Toast.LENGTH_LONG).show();
                                                           CartItem item = new CartItem(selectedFoodItem,1);
                                                           Cart.getInstance().addToCart(item);

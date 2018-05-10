@@ -31,9 +31,9 @@ public class Database {
         ref.push().setValue(item);
         System.out.println("item is saved to database");
     }
-    public void setNodeOrderDetails(String path,ArrayList<CartItem>/*change type to your object class */ item ) {
+    public void setNodeOrderDetails(String path,Order/*change type to your object class */ order ) {
         DatabaseReference ref = database.getReference(path);
-        ref.push().setValue(item);
+        ref.push().setValue(order);
         System.out.println("order item o database");    }
 
     //sample invoke from any class or any method

@@ -6,12 +6,24 @@
         android:id="@+id/itemName"
         android:layout_width="0dip"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
+        android:layout_weight="1"
         android:padding="@dimen/activity_horizontal_margin"
         android:text="Demo"
         android:textStyle="bold"
         android:textSize="18dp"
         android:textColor="@color/colorPrimary" />
+
+    <TextView
+        android:id="@+id/itemPrice"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:text="Demo"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:textColor="@color/colorPrimary" />
+
 
     <EditText
         android:id="@+id/itemQuantity"

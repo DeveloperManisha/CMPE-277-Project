@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#b5a600</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FFFF</color>
+    <color name="colorAccent">#000</color>
     <color name="colorOlive">#b5a600</color>
     <color name="colorComplimentry">#edf4c3</color>
     <color name="colorTableBright">#c5d168</color>
