@@ -22,7 +22,7 @@
         android:dividerHeight="2dp"
         android:listSelector="@color/colorTableBright" />
     <Button
-        android:id="@+id/addFoodItem"
+        android:id="@+id/placeOrder"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:text="Place Order"
