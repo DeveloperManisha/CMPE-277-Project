@@ -182,13 +182,13 @@ public class RestaurantActivity extends AppCompatActivity
                                                           @Override
                                                           public void onClick(View v, int posistion, boolean flag) {
 
-                                                              Toast.makeText(RestaurantActivity.this, selectedFoodItem.getCategory(),Toast.LENGTH_LONG).show();
+                                                             // Toast.makeText(RestaurantActivity.this, selectedFoodItem.getCategory(),Toast.LENGTH_LONG).show();
                                                           }
 
                                                           @Override
                                                           public void onLongClick(View v, int posistion, boolean flag) {
 
-                                                              Toast.makeText(RestaurantActivity.this, "delete",Toast.LENGTH_LONG).show();
+                                                              //Toast.makeText(RestaurantActivity.this, "delete",Toast.LENGTH_LONG).show();
                                                               query.orderByChild("name")
                                                                       .equalTo(selectedFoodItem.getName())
                                                                       .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -197,6 +197,8 @@ public class RestaurantActivity extends AppCompatActivity
                                                                                   DataSnapshot firstChild = dataSnapshot.getChildren().iterator().next();
                                                                                   firstChild.getRef().removeValue();
                                                                               }
+                                                                              String msg= "Deleted Food Item "+ selectedFoodItem.getCategory();
+                                                                              Toast.makeText(RestaurantActivity.this, msg,Toast.LENGTH_LONG).show();
                                                                           }
 
                                                                           public void onCancelled(DatabaseError firebaseError) {
