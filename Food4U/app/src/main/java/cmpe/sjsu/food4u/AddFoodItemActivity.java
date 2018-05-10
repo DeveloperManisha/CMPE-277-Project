@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -26,7 +27,7 @@ import java.util.UUID;
 public class AddFoodItemActivity extends AppCompatActivity {
 
     private EditText category;
-    private EditText picture;
+    private TextView picture;
     private EditText price;
     private EditText calories;
     private EditText time;
@@ -44,7 +45,7 @@ public class AddFoodItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_food_item);
         category = (EditText)findViewById(R.id.category);
-        picture = (EditText)findViewById(R.id.picture);
+        picture = (TextView) findViewById(R.id.picture);
         price = (EditText)findViewById(R.id.unitPrice);
         calories=(EditText)findViewById(R.id.calories);
         time=(EditText)findViewById(R.id.preparationtime);
@@ -91,6 +92,7 @@ public class AddFoodItemActivity extends AppCompatActivity {
                 && data != null && data.getData() != null )
         {
             menuItemPicURl = data.getData();
+            picture.setText("image selected");
             System.out.println("********"+menuItemPicURl+"**********");
         }
     }

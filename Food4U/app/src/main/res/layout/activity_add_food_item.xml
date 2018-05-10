@@ -40,8 +40,8 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:ems="10"
-            android:hint="eg Dessert"
-            android:inputType="number" />
+            android:hint="eg dessert"
+            android:inputType="text" />
 
     </LinearLayout>
     <LinearLayout
@@ -84,17 +84,15 @@
             android:textSize="18dp"
             android:textStyle="bold"
             android:textColor="@color/colorPrimary"/>
-        <EditText
+        <TextView
             android:id="@+id/picture"
             android:layout_width="0dip"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:ems="10"
-            android:hint="to be added "
-            android:inputType="number" />
+            android:text=""/>
         <Button
             android:id="@+id/uploadImage"
-            android:text="+"
+            android:text=" + "
             android:layout_weight="0.5"
             android:layout_width="0dip"
             android:layout_height="wrap_content" />
