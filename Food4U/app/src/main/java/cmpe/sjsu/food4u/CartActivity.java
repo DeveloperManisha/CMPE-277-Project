@@ -52,6 +52,7 @@ public class CartActivity extends AppCompatActivity {
 
                 Toast.makeText(getApplicationContext(), "Order placed Successfully", Toast.LENGTH_LONG).show();
                 //move to next activity
+                Cart.getInstance().emptyCart();
                 Intent intent = new Intent(getApplicationContext(),UserRestaurantActivity.class);
                 startActivity(intent);
 

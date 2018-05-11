@@ -105,6 +105,9 @@ public class UserRestaurantActivity extends AppCompatActivity
         } else if (id == R.id.logout) {
             logout();
         }
+        else if (id == R.id.orders) {
+            logout();
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

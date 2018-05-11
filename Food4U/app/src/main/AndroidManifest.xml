@@ -43,7 +43,7 @@
             android:name=".UserRestaurantActivity"
             android:label="@string/title_activity_user_restaurant"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".CartActivity" >
+        <activity android:name=".CartActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="cmpe.sjsu.food4u.UserRestaurantActivity" />
@@ -52,6 +52,11 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="cmpe.sjsu.food4u.UserRestaurantActivity" />
+        </activity>
+        <activity android:name=".OrderActivity">
+            <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="cmpe.sjsu.food4u.UserRestaurantActivity" />
         </activity>
     </application>
 

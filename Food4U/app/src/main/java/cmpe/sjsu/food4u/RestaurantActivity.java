@@ -197,7 +197,7 @@ public class RestaurantActivity extends AppCompatActivity
                                                                                   DataSnapshot firstChild = dataSnapshot.getChildren().iterator().next();
                                                                                   firstChild.getRef().removeValue();
                                                                               }
-                                                                              String msg= "Deleted Food Item "+ selectedFoodItem.getCategory();
+                                                                              String msg= "Deleted Food Item "+ selectedFoodItem.getName();
                                                                               Toast.makeText(RestaurantActivity.this, msg,Toast.LENGTH_LONG).show();
                                                                           }
 
