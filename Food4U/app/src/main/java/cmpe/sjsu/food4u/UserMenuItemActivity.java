@@ -92,8 +92,8 @@ public class UserMenuItemActivity extends AppCompatActivity {
                         .load(pathReference).centerCrop()
                         .into(holder.menuCategoryImage);
 
-                String textString = model.getName()+"\n"+"Calories :" + model.getCalories()+
-                        "\n"+"Price : "+model.getPrice();
+                String textString = model.getName()+"\n\n"+"Calories :" + model.getCalories()+
+                        "\n\n"+"Price : "+model.getPrice();
 
                 System.out.println("User menu description:"+textString);
                 holder.menuCategoryName.setText(textString);
