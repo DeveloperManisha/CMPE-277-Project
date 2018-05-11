@@ -22,12 +22,15 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.firebase.ui.storage.images.FirebaseImageLoader;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -60,6 +63,7 @@ public class RestaurantActivity extends AppCompatActivity
         setContentView(R.layout.activity_restaurant);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
         database = FirebaseDatabase.getInstance();
         dbReference = database.getReference("MenuItems");
@@ -131,10 +135,10 @@ public class RestaurantActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-       /* if (id == R.id.nav_camera) {
+        if (id == R.id.logout) {
+            logout();
 
-        } else if (id == R.id.nav_gallery) {
-        }*/
+        }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -178,13 +182,13 @@ public class RestaurantActivity extends AppCompatActivity
                                                           @Override
                                                           public void onClick(View v, int posistion, boolean flag) {
 
-                                                              Toast.makeText(RestaurantActivity.this, selectedFoodItem.getCategory(),Toast.LENGTH_LONG).show();
+                                                             // Toast.makeText(RestaurantActivity.this, selectedFoodItem.getCategory(),Toast.LENGTH_LONG).show();
                                                           }
 
                                                           @Override
                                                           public void onLongClick(View v, int posistion, boolean flag) {
 
-                                                              Toast.makeText(RestaurantActivity.this, "delete",Toast.LENGTH_LONG).show();
+                                                              //Toast.makeText(RestaurantActivity.this, "delete",Toast.LENGTH_LONG).show();
                                                               query.orderByChild("name")
                                                                       .equalTo(selectedFoodItem.getName())
                                                                       .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -193,6 +197,8 @@ public class RestaurantActivity extends AppCompatActivity
                                                                                   DataSnapshot firstChild = dataSnapshot.getChildren().iterator().next();
                                                                                   firstChild.getRef().removeValue();
                                                                               }
+                                                                              String msg= "Deleted Food Item "+ selectedFoodItem.getCategory();
+                                                                              Toast.makeText(RestaurantActivity.this, msg,Toast.LENGTH_LONG).show();
                                                                           }
 
                                                                           public void onCancelled(DatabaseError firebaseError) {
@@ -269,5 +275,17 @@ public class RestaurantActivity extends AppCompatActivity
         adapter.stopListening();
     }
 
+    public void logout(){
+        AuthUI.getInstance()
+                .signOut(getApplicationContext())
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    public void onComplete(@NonNull Task<Void> task) {
+                        // user is now signed out
+                        LoginContext.currentUser=null;
+                        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                        finish();
+                    }
+                });
+    }
 }
 

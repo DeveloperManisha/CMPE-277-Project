@@ -29,7 +29,7 @@ public class UserActivity extends AppCompatActivity {
                         .setAvailableProviders(Arrays.asList(
                                 new AuthUI.IdpConfig.EmailBuilder().build(),
                                 new AuthUI.IdpConfig.GoogleBuilder().build(),
-                                new AuthUI.IdpConfig.FacebookBuilder().build())).build(), RC_SIGN_IN);
+                                new AuthUI.IdpConfig.FacebookBuilder().build())).build(), RC_SIGN_IN);   // Set theme;
 
     }
 
@@ -48,18 +48,14 @@ public class UserActivity extends AppCompatActivity {
                 Intent intent = new Intent(UserActivity.this,UserRestaurantActivity.class);
 
                 startActivity(intent);}
-               // startActivity(SignedInActivity.createIntent(this, response));
                 finish();
             } else {
                 // Sign in failed
                 if (response == null) {
-                    // User pressed back button
-                   // showSnackbar(R.string.sign_in_cancelled);
                     return;
                 }
 
                 if (response.getError().getErrorCode() == ErrorCodes.NO_NETWORK) {
-                    //showSnackbar(R.string.no_internet_connection);
                     return;
                 }
 
