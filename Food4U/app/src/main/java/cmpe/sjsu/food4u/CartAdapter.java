@@ -51,31 +51,51 @@ public class CartAdapter extends ArrayAdapter<CartItem> {
 
         quantity = (EditText) listItem.findViewById(R.id.itemQuantity);
         quantity.setText(currentItem.getQuantity().toString());
-        quantity.addTextChangedListener(watcher);
+        quantity.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void afterTextChanged(Editable s) {}
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count) {
+               // currentItem.setQuantity(Integer.parseInt(currentItem.toString()));
+               // Double price =  currentItem.getItem().getPrice()*currentItem.getQuantity();
+                //itemPrice.setText(price.toString());
+            //    Double price =  s.toString();
+                itemPrice.setText(s.toString());
+            }
+        });
 
         return listItem;
     }
 
-    TextWatcher watcher = new TextWatcher() {
-        @Override
-        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-        }
-
-        @Override
-        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-        }
-
-        @Override
-        public void afterTextChanged(Editable editable) {
-            if(!editable.toString().isEmpty()) {
-                currentItem.setQuantity(Integer.parseInt(editable.toString()));
-                Double price =  currentItem.getItem().getPrice()*currentItem.getQuantity();
-                itemPrice.setText(price.toString());
-               // Toast.makeText(mContext, editable.toString(), Toast.LENGTH_SHORT).show();
-            }
-
-        }
-    };
+//    TextWatcher watcher = new TextWatcher() {
+//        @Override
+//        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//        }
+//
+//        @Override
+//        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//        }
+//
+//        @Override
+//        public void afterTextChanged(Editable editable) {
+////            if(!editable.toString().isEmpty()) {
+////                currentItem.setQuantity(Integer.parseInt(editable.toString()));
+////                Double price =  currentItem.getItem().getPrice()*currentItem.getQuantity();
+////                itemPrice.setText(price.toString());
+////              //  notifyDataSetChanged();
+////                // Toast.makeText(mContext, editable.toString(), Toast.LENGTH_SHORT).show();
+////            }
+//
+//        }
+//    };
 }

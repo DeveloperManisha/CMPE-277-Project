@@ -14,10 +14,10 @@
         android:layout_above="@+id/buttonLayout"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="43dp"
-        android:text="Sign In /Sign up"
+        android:text="@string/sign_in_sign_up"
         android:textAlignment="center"
         android:textColor="@color/colorOlive"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:textStyle="italic" />
 
     <LinearLayout
@@ -30,26 +30,22 @@
             android:id="@+id/admin"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
             android:layout_marginBottom="25dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
             android:background="@color/colorOlive"
-            android:text="Admin" />
+            android:text="@string/admin" />
 
         <Button
             android:id="@+id/user"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/signup"
-            android:layout_alignParentEnd="true"
             android:layout_marginBottom="25dp"
-            android:layout_marginRight="5dp"
-            android:layout_toRightOf="@+id/signup"
+            android:layout_marginEnd="5dp"
             android:layout_weight="1"
             android:background="@color/colorOlive"
-            android:text="user" />
+            android:text="@string/user" />
     </LinearLayout>
 
 </RelativeLayout>

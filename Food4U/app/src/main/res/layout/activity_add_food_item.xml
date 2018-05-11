@@ -34,6 +34,7 @@
             android:textSize="18dp"
             android:textStyle="bold"
             android:textColor="@color/colorPrimary"/>
+
         <EditText
             android:id="@+id/category"
             android:layout_width="0dip"
@@ -41,7 +42,7 @@
             android:layout_weight="2"
             android:ems="10"
             android:hint="eg Dessert"
-            android:inputType="number" />
+            android:inputType="text" />
 
     </LinearLayout>
     <LinearLayout

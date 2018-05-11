@@ -10,5 +10,8 @@
 
     <string name="action_settings">Settings</string>
     <string name="title_activity_user_restaurant">UserRestaurantActivity</string>
+    <string name="admin">Admin</string>
+    <string name="sign_in_sign_up">Sign In /Sign up</string>
+    <string name="user">user</string>
 
 </resources>
