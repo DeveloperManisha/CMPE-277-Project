@@ -15,12 +15,12 @@
     <TextView
         android:id="@+id/categoryName"
         android:layout_width="0dip"
-        android:layout_weight="2"
         android:layout_height="match_parent"
-        android:text="Demo"
-        android:textSize="18dp"
-        android:textStyle="bold"
+        android:layout_weight="2"
         android:background="@color/colorComplimentry"
-        android:textColor="@color/colorOlive"/>
+        android:text="Demo"
+        android:textColor="@android:color/black"
+        android:textSize="18dp"
+        android:textStyle="bold" />
 
 </LinearLayout>

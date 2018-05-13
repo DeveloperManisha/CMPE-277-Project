@@ -89,7 +89,7 @@ public class AddFoodItemActivity extends AppCompatActivity {
                 && data != null && data.getData() != null )
         {
             menuItemPicURl = data.getData();
-            picture.setText("image selected");
+            picture.setText("Image Selected");
             System.out.println("********"+menuItemPicURl+"**********");
         }
     }
