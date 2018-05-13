@@ -24,7 +24,7 @@
             android:background="@drawable/appetizer"
             android:text="Appetizer"
             android:textColor="@android:color/white"
-            android:textSize="20dp" />
+            android:textSize="18sp" />
 
     </LinearLayout>
     <LinearLayout
@@ -42,7 +42,7 @@
             android:background="@drawable/dessert"
             android:text="Dessert"
             android:textColor="@android:color/white"
-            android:textSize="20dp" />
+            android:textSize="18sp" />
 
     </LinearLayout>
     <LinearLayout
@@ -60,7 +60,7 @@
             android:background="@drawable/drink"
             android:text="Drinks"
             android:textColor="@android:color/white"
-            android:textSize="20dp" />
+            android:textSize="18sp" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -77,7 +77,7 @@
             android:background="@drawable/maincourse"
             android:text="Main Course"
             android:textColor="@android:color/white"
-            android:textSize="20dp" />
+            android:textSize="18sp" />
 
     </LinearLayout>
 
