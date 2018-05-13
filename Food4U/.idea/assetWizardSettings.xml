@@ -34,7 +34,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="scalingPercent" value="167" />
+                                                <entry key="scalingPercent" value="109" />
                                                 <entry key="trimmed" value="true" />
                                               </map>
                                             </option>
@@ -46,12 +46,9 @@
                                   <option name="values">
                                     <map>
                                       <entry key="backgroundLayerName" value="ic_launcher_background" />
-                                      <entry key="foregroundImage" value="$PROJECT_DIR$/../../appetizer menu.jpg" />
-                                      <entry key="foregroundLayerName" value="ic" />
-                                      <entry key="generateLegacyIcon" value="false" />
-                                      <entry key="generateRoundIcon" value="false" />
-                                      <entry key="generateWebIcon" value="false" />
-                                      <entry key="outputName" value="appetizer_menu" />
+                                      <entry key="foregroundImage" value="$PROJECT_DIR$/../../food4u.png" />
+                                      <entry key="foregroundLayerName" value="ic_app" />
+                                      <entry key="outputName" value="app_icon" />
                                       <entry key="previewDensity" value="HIGH" />
                                       <entry key="webIconShape" value="HRECT" />
                                     </map>
