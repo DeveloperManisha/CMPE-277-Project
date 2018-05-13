@@ -19,10 +19,9 @@
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="ADMIN Sign in"
+            android:text="Admin Sign in"
             android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textSize="20sp" />
     </LinearLayout>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -40,8 +39,7 @@
             android:gravity="center_horizontal"
             android:text="Username"
             android:textColor="?android:attr/colorPrimaryDark"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/username"
@@ -70,8 +68,7 @@
             android:gravity="center_horizontal"
             android:text="Password"
             android:textColor="?android:attr/colorPrimaryDark"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/password"
@@ -98,12 +95,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="0.8in"
+            android:layout_marginRight="0.8in"
             android:layout_weight="1"
             android:background="@android:color/darker_gray"
             android:text="Login"
             android:textColor="@android:color/black"
-            android:textSize="8pt"
-            android:textStyle="bold" />
+            android:textSize="8pt" />
 
     </LinearLayout>
 
