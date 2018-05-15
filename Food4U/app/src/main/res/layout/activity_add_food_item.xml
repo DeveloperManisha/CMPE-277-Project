@@ -83,7 +83,7 @@
         android:background="@android:color/white">
 
         <TextView
-            android:layout_width="0dip"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
@@ -91,12 +91,16 @@
             android:textAlignment="viewStart"
             android:textColor="?attr/colorPrimaryDark"
             android:textSize="18dp" />
+
         <TextView
             android:id="@+id/picture"
             android:layout_width="0dip"
             android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:text=""/>
+            android:layout_weight="1"
+            android:gravity="center"
+            android:hint="Select Image"
+            android:textAlignment="viewStart"
+            android:textSize="18dp"/>
 
         <Button
             android:id="@+id/uploadImage"

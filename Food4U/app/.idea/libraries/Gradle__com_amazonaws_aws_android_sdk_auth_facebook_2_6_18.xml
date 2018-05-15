@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.amazonaws:aws-android-sdk-auth-facebook-2.6.18">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/aws-android-sdk-auth-facebook-2.6.18.aar/031fe11db9fa3ec897d57fcefedffbcc/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/aws-android-sdk-auth-facebook-2.6.18.aar/031fe11db9fa3ec897d57fcefedffbcc/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.amazonaws/aws-android-sdk-auth-facebook/2.6.18/aeabfb5eb620bcb5873f6f7f24bea415ec656a0/aws-android-sdk-auth-facebook-2.6.18-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

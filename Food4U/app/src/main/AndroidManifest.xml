@@ -32,8 +32,6 @@
         </activity>
         <activity android:name=".demoActivity" />
 
-        <!-- ... -->
-
         <activity
             android:name=".RestaurantActivity"
             android:label="@string/title_activity_restaurant"
@@ -53,6 +51,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="cmpe.sjsu.food4u.UserRestaurantActivity" />
         </activity>
+        <activity android:name=".OrderActivity"/>
+        <activity android:name=".OrderResetActivity"/>
+        <activity android:name=".SystemReportsActivity"/>
     </application>
 
 </manifest>
