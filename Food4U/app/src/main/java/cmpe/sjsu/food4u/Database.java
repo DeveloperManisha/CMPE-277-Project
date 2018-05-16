@@ -34,6 +34,7 @@ public class Database {
     public void setNodeOrderDetails(String path,Order/*change type to your object class */ order ) {
         DatabaseReference ref = database.getReference(path);
         ref.push().setValue(order);
+        //ref.child("totalTime").push().setValue(order.totalTime);
         System.out.println("order item o database");    }
 
     //sample invoke from any class or any method

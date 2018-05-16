@@ -1,32 +1,22 @@
 package cmpe.sjsu.food4u;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import junit.framework.Test;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
 
 public class CartActivity extends Activity {
     DateFormat fmtDateAndTime = DateFormat.getDateTimeInstance();
@@ -37,7 +27,7 @@ public class CartActivity extends Activity {
     Button pickupTime;
     Calendar myCalendar = Calendar.getInstance();
     SimpleDateFormat formatter = new SimpleDateFormat("DD-MMM-yyyy");
-    String strTime;
+    String pickupTimeVal;
     Boolean flag = false;
 
     @Override
@@ -83,8 +73,8 @@ public class CartActivity extends Activity {
                 myCalendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
                 myCalendar.set(Calendar.MINUTE, minute);
 
-                strTime = fmtDateAndTime.format(myCalendar.getTime());
-                Log.d("ADebugTag-->", strTime);
+                pickupTimeVal = fmtDateAndTime.format(myCalendar.getTime());
+                Log.d("ADebugTag-->", pickupTimeVal);
             }
         };
 
@@ -135,12 +125,14 @@ public class CartActivity extends Activity {
 //                    String orderPickupTime = Calendar.getInstance().getTime().toString();
 
                     Double totalPrice = 0.0;
+                    Double totalTime = 0.0;
 
-                    for (int i = 0; i < Cart.getInstance().cartItemList.size(); i++)
-
+                    for (int i = 0; i < Cart.getInstance().cartItemList.size(); i++) {
                         totalPrice += Cart.getInstance().cartItemList.get(i).getItem().getPrice() * Cart.getInstance().cartItemList.get(i).getQuantity();
-
-                    Order order = new Order(Cart.getInstance().cartItemList, totalPrice, LoginContext.currentUser.getEmail(), orderPlacementTime, strTime);
+                     //   totalTime += Cart.getInstance().cartItemList.get(i).getItem().getTime();
+                        totalTime = 200.0;
+                    }
+                    Order order = new Order(totalTime, Cart.getInstance().cartItemList, totalPrice, LoginContext.currentUser.getEmail(), orderPlacementTime, pickupTimeVal);
 
                     Database.getInstance().setNodeOrderDetails("orders", order);
 

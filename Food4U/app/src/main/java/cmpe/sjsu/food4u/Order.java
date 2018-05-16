@@ -13,17 +13,19 @@ public class Order {
     String useremail;
     String orderDate;
     String pickupDate;
+    Double totalTime;
 
     public Order() {
 
     }
 
-    public Order(ArrayList<CartItem> cartItemsList, Double totalPrice, String userEmail, String orderDate, String pickupDate) {
+    public Order(Double totalTime, ArrayList<CartItem> cartItemsList, Double totalPrice, String userEmail, String orderDate, String pickupDate) {
         this.cartItemsList = cartItemsList;
-        this.totalPrice = totalPrice;
-        this.useremail = userEmail;
         this.orderDate = orderDate;
         this.pickupDate = pickupDate;
+        this.totalPrice = totalPrice;
+        this.useremail = userEmail;
+        this.totalTime = totalTime;
     }
 
     public ArrayList<CartItem> getCartItemsList() {
