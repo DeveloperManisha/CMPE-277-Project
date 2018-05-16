@@ -24,9 +24,9 @@ public class CartAdapter extends ArrayAdapter<CartItem> {
     private List<CartItem> cartList = new ArrayList<>();
     private  CartItem currentItem;
     private  TextView  itemName;
-    private  TextView  itemPrice;
+    private  TextView  itemPriceVal;
     private EditText quantity;
-
+    View listItem;
     public CartAdapter( Context context, ArrayList<CartItem> list) {
         super(context, 0 , list);
         mContext = context;
@@ -35,7 +35,7 @@ public class CartAdapter extends ArrayAdapter<CartItem> {
 
     @Override
     public View getView(int position,  View convertView,  ViewGroup parent) {
-        View listItem = convertView;
+        listItem = convertView;
         if(listItem == null)
             listItem = LayoutInflater.from(mContext).inflate(R.layout.cart_list_view,parent,false);
 
@@ -44,17 +44,25 @@ public class CartAdapter extends ArrayAdapter<CartItem> {
         itemName = (TextView)listItem.findViewById(R.id.itemName);
         itemName.setText(currentItem.getItem().getName());
 
-        itemPrice = (TextView)listItem.findViewById(R.id.itemPrice);
+        itemPriceVal = (TextView)listItem.findViewById(R.id.itemPrice);
         Double price =  currentItem.getItem().getPrice()*currentItem.getQuantity();
-        itemPrice.setText(price.toString());
+        itemPriceVal.setText(price.toString());
 
 
         quantity = (EditText) listItem.findViewById(R.id.itemQuantity);
         quantity.setText(currentItem.getQuantity().toString());
         quantity.addTextChangedListener(new TextWatcher() {
-
+            boolean _ignore = false;
             @Override
-            public void afterTextChanged(Editable s) {}
+            public void afterTextChanged(Editable s) {
+                if (_ignore)
+                    return;
+                _ignore = true; // prevent infinite loop
+                // Change your text here.
+              itemPriceVal.setText(s.toString());
+                _ignore = false; // release, so the TextWatcher start to listen again.
+
+            }
 
             @Override
             public void beforeTextChanged(CharSequence s, int start,
@@ -68,34 +76,10 @@ public class CartAdapter extends ArrayAdapter<CartItem> {
                // Double price =  currentItem.getItem().getPrice()*currentItem.getQuantity();
                 //itemPrice.setText(price.toString());
             //    Double price =  s.toString();
-                itemPrice.setText(s.toString());
+  //              itemPriceVal.setText(s.toString());
             }
         });
 
         return listItem;
     }
-
-//    TextWatcher watcher = new TextWatcher() {
-//        @Override
-//        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//
-//        }
-//
-//        @Override
-//        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//
-//        }
-//
-//        @Override
-//        public void afterTextChanged(Editable editable) {
-////            if(!editable.toString().isEmpty()) {
-////                currentItem.setQuantity(Integer.parseInt(editable.toString()));
-////                Double price =  currentItem.getItem().getPrice()*currentItem.getQuantity();
-////                itemPrice.setText(price.toString());
-////              //  notifyDataSetChanged();
-////                // Toast.makeText(mContext, editable.toString(), Toast.LENGTH_SHORT).show();
-////            }
-//
-//        }
-//    };
 }

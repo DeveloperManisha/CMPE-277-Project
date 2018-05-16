@@ -110,7 +110,7 @@ public class AddFoodItemActivity extends AppCompatActivity {
                             progressDialog.dismiss();
 
                             Toast.makeText(AddFoodItemActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
-                            FoodItem f = new FoodItem(category.getText().toString(),name.getText().toString(),imageid,Double.parseDouble(price.getText().toString()),Integer.parseInt(calories.getText().toString()),Integer.parseInt(time.getText().toString()));
+                            FoodItem f = new FoodItem(category.getText().toString(),name.getText().toString(),imageid,Double.parseDouble(price.getText().toString()),Integer.parseInt(calories.getText().toString()),Integer.parseInt(time.getText().toString()),1);
                             dbReference.push().setValue(f);
                             Intent intent = new Intent(AddFoodItemActivity.this,RestaurantActivity.class);
                             AddFoodItemActivity.this.startActivity(intent);

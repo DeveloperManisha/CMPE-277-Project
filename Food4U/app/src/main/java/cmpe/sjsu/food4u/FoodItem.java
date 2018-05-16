@@ -12,6 +12,7 @@ public class FoodItem {
     private Double price;
     private Integer calories;
     private Integer time;
+    private Integer popularity;
 
     public String getName() {
         return name;
@@ -46,12 +47,21 @@ public class FoodItem {
         this.time = time;
     }
 
+    public Integer getPopularity() {
+        return popularity;
+    }
+
+    public void setPopularity(Integer popularity) {
+        this.popularity = popularity;
+    }
+
 
     public FoodItem() {
 
     }
 
-    public FoodItem(String category,String name, String picture, Double price, Integer calories, Integer time) {
+    public FoodItem(String category,String name, String picture, Double price, Integer calories, Integer time,Integer popularity) {
+        this.popularity = popularity;
         this.category = category;
         this.picture = picture;
         this.price = price;

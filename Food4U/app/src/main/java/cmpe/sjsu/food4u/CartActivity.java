@@ -5,6 +5,8 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -27,7 +29,7 @@ public class CartActivity extends Activity {
     Button pickupTime;
     Calendar myCalendar = Calendar.getInstance();
     SimpleDateFormat formatter = new SimpleDateFormat("DD-MMM-yyyy");
-    String pickupTimeVal;
+    String pickupTimeVal = null;
     Boolean flag = false;
     final long sevenDays = 1000*60*60*24*7;
 
@@ -139,7 +141,7 @@ public class CartActivity extends Activity {
 
             public void onClick(View view) {
 
-                if (flag.equals(true)) {
+                if (flag.equals(true) && pickupTimeVal != null) {
                     String orderPlacementTime = Calendar.getInstance().getTime().toString();
 
 //                    String orderPickupTime = Calendar.getInstance().getTime().toString();
@@ -163,6 +165,10 @@ public class CartActivity extends Activity {
                     Intent intent = new Intent(getApplicationContext(), UserRestaurantActivity.class);
 
                     startActivity(intent);
+                }
+                else{
+                    Toast.makeText(CartActivity.this, "Please select date and time correctly!!",
+                            Toast.LENGTH_LONG).show();
                 }
             }
 
