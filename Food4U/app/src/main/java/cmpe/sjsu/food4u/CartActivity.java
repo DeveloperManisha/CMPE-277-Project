@@ -129,18 +129,17 @@ public class CartActivity extends Activity {
 
                     for (int i = 0; i < Cart.getInstance().cartItemList.size(); i++) {
                         totalPrice += Cart.getInstance().cartItemList.get(i).getItem().getPrice() * Cart.getInstance().cartItemList.get(i).getQuantity();
-                     //   totalTime += Cart.getInstance().cartItemList.get(i).getItem().getTime();
-                        totalTime = 200.0;
+                        totalTime += Cart.getInstance().cartItemList.get(i).getItem().getTime();
                     }
-                    Order order = new Order(totalTime, Cart.getInstance().cartItemList, totalPrice, LoginContext.currentUser.getEmail(), orderPlacementTime, pickupTimeVal);
+                    Order order = new Order(Cart.getInstance().cartItemList, totalPrice, LoginContext.currentUser.getEmail(), orderPlacementTime, pickupTimeVal, totalTime);
 
                     Database.getInstance().setNodeOrderDetails("orders", order);
 
 
                     Toast.makeText(getApplicationContext(), "Order placed Successfully", Toast.LENGTH_LONG).show();
 
+                    Cart.getInstance().cartItemList.clear();
                     //move to next activity
-
                     Intent intent = new Intent(getApplicationContext(), UserRestaurantActivity.class);
 
                     startActivity(intent);

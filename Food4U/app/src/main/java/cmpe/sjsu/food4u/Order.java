@@ -19,7 +19,7 @@ public class Order {
 
     }
 
-    public Order(Double totalTime, ArrayList<CartItem> cartItemsList, Double totalPrice, String userEmail, String orderDate, String pickupDate) {
+    public Order(ArrayList<CartItem> cartItemsList, Double totalPrice, String userEmail, String orderDate, String pickupDate, Double totalTime) {
         this.cartItemsList = cartItemsList;
         this.orderDate = orderDate;
         this.pickupDate = pickupDate;
@@ -67,4 +67,13 @@ public class Order {
     public void setPickupDate(String pickupDate) {
         this.pickupDate = pickupDate;
     }
+
+    public Double getTotalTime() {
+        return totalTime;
+    }
+
+    public void setTotalTime(Double totalTime) {
+        this.totalPrice = totalTime;
+    }
+
 }
