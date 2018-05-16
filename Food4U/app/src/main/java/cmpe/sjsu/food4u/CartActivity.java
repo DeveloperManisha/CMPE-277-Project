@@ -29,6 +29,7 @@ public class CartActivity extends Activity {
     SimpleDateFormat formatter = new SimpleDateFormat("DD-MMM-yyyy");
     String pickupTimeVal;
     Boolean flag = false;
+    final long sevenDays = 1000*60*60*24*7;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +46,8 @@ public class CartActivity extends Activity {
             tPrice += Cart.getInstance().cartItemList.get(i).getItem().getPrice() * Cart.getInstance().cartItemList.get(i).getQuantity();
 
         totalPrice.setText(tPrice.toString());
-        final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
 
+        final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear,
                                   int dayOfMonth) {
@@ -54,18 +55,40 @@ public class CartActivity extends Activity {
                 myCalendar.set(Calendar.YEAR, year);
                 myCalendar.set(Calendar.MONTH, monthOfYear);
                 myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                String strdate = null;
 
+                String strdate = null;
+                long now = System.currentTimeMillis() - 1000;
+                long time2 =   myCalendar.getTimeInMillis();
+
+                long diff = time2 - now;
                 SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 
                 if (myCalendar != null) {
-                    strdate = sdf.format(myCalendar.getTime());
-                    flag = true;
+                    if(diff>0 && diff < sevenDays){
+                        strdate = sdf.format(myCalendar.getTime());
+                        flag = true;
+                        pickupTime.setVisibility(View.VISIBLE);
+                        Log.d("ADebugTag-->", strdate);
+                    }
+                    else{
+                        Toast.makeText(CartActivity.this, "Please select within the next 7 days!!",
+                                Toast.LENGTH_LONG).show();
+                    }
                 }
-                Log.d("ADebugTag-->", strdate);
             }
 
         };
+        pickupDate = (Button) findViewById(R.id.pickupDate);
+        pickupDate.setOnClickListener(new View.OnClickListener() {
+
+
+            public void onClick(View v) {
+                new DatePickerDialog(CartActivity.this, date, myCalendar
+                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                        myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+
+            }
+        });
 
         final TimePickerDialog.OnTimeSetListener t = new TimePickerDialog.OnTimeSetListener() {
             public void onTimeSet(TimePicker view, int hourOfDay,
@@ -73,20 +96,17 @@ public class CartActivity extends Activity {
                 myCalendar.set(Calendar.HOUR_OF_DAY, hourOfDay);
                 myCalendar.set(Calendar.MINUTE, minute);
 
-                pickupTimeVal = fmtDateAndTime.format(myCalendar.getTime());
-                Log.d("ADebugTag-->", pickupTimeVal);
+                if(hourOfDay > 6 && hourOfDay < 21) {
+                    pickupTimeVal = fmtDateAndTime.format(myCalendar.getTime());
+                    Log.d("ADebugTag-->", pickupTimeVal);
+                }
+                else{
+                    Toast.makeText(CartActivity.this, "Please select within the office hours of 6am to 9pm!!",
+                            Toast.LENGTH_LONG).show();
+                }
             }
         };
 
-        pickupDate = (Button) findViewById(R.id.pickupDate);
-        pickupDate.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View v) {
-                new DatePickerDialog(CartActivity.this, date, myCalendar
-                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
-                        myCalendar.get(Calendar.DAY_OF_MONTH)).show();
-            }
-        });
 
         pickupTime = (Button) findViewById(R.id.pickupTime);
         pickupTime.setOnClickListener(new View.OnClickListener() {
