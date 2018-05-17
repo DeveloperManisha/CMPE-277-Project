@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,10 +17,19 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class UserRestaurantActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -28,6 +38,9 @@ public class UserRestaurantActivity extends AppCompatActivity
     Button maincourse;
     Button appetizer;
     Button drink;
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference ref = database.getReference("orders");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,67 +125,70 @@ public class UserRestaurantActivity extends AppCompatActivity
     }
 
 
-    public void setUsername(){
+    public void setUsername() {
         TextView usernameTv = findViewById(R.id.username);
         usernameTv.setText(LoginContext.currentUser.getDisplayName());
     }
-    public void logout(){
+
+    public void logout() {
         AuthUI.getInstance()
                 .signOut(getApplicationContext())
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     public void onComplete(@NonNull Task<Void> task) {
                         // user is now signed out
-                        LoginContext.currentUser=null;
+                        LoginContext.currentUser = null;
                         startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                         finish();
                     }
                 });
     }
-    public void moveTocart(){
+
+    public void moveTocart() {
 
         startActivity(new Intent(getApplicationContext(), CartActivity.class));
     }
 
-    public void setupMenuCategoryUI(){
-        dessert = (Button)findViewById(R.id.dessert);
+    public void setupMenuCategoryUI() {
+        dessert = (Button) findViewById(R.id.dessert);
         dessert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),UserMenuItemActivity.class);
-                intent.putExtra("filter","dessert");
+                Intent intent = new Intent(getApplicationContext(), UserMenuItemActivity.class);
+                intent.putExtra("filter", "dessert");
                 startActivity(intent);
             }
         });
 
-        maincourse = (Button)findViewById(R.id.maincourse);
+        maincourse = (Button) findViewById(R.id.maincourse);
         maincourse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),UserMenuItemActivity.class);
-                intent.putExtra("filter","maincourse");
+                Intent intent = new Intent(getApplicationContext(), UserMenuItemActivity.class);
+                intent.putExtra("filter", "maincourse");
                 startActivity(intent);
             }
         });
-        appetizer = (Button)findViewById(R.id.appetizer);
+        appetizer = (Button) findViewById(R.id.appetizer);
         appetizer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),UserMenuItemActivity.class);
-                intent.putExtra("filter","appetizer");
+                Intent intent = new Intent(getApplicationContext(), UserMenuItemActivity.class);
+                intent.putExtra("filter", "appetizer");
                 startActivity(intent);
             }
         });
-        drink = (Button)findViewById(R.id.drink);
+        drink = (Button) findViewById(R.id.drink);
         drink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),UserMenuItemActivity.class);
-                intent.putExtra("filter","drink");
+                Intent intent = new Intent(getApplicationContext(), UserMenuItemActivity.class);
+                intent.putExtra("filter", "drink");
                 startActivity(intent);
             }
         });
 
     }
+
     DrawerLayout.DrawerListener drawerListener = new DrawerLayout.DrawerListener() {
         @Override
         public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
@@ -195,4 +211,26 @@ public class UserRestaurantActivity extends AppCompatActivity
 
         }
     };
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        Query lastQuery = ref.orderByKey().limitToLast(1);
+        lastQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                //  String message = dataSnapshot.child("cartItemsList").child("0").child("item").child("name").getValue().toString();
+                //   Iterable t = dataSnapshot.getChildren();
+                for (DataSnapshot alert : dataSnapshot.getChildren()) {
+                    Log.d("image_name", (String) alert.child("cartItemsList").child("0").child("item").child("name").getValue());
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                //Handle possible errors.
+            }
+        });
+    }
+
 }

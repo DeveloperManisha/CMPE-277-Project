@@ -148,10 +148,15 @@ public class CartActivity extends Activity {
 
                     Double totalPrice = 0.0;
                     Double totalTime = 0.0;
+                    Integer pop = 0;
 
                     for (int i = 0; i < Cart.getInstance().cartItemList.size(); i++) {
                         totalPrice += Cart.getInstance().cartItemList.get(i).getItem().getPrice() * Cart.getInstance().cartItemList.get(i).getQuantity();
                         totalTime += Cart.getInstance().cartItemList.get(i).getItem().getTime();
+                      //  pop = Cart.getInstance().cartItemList.get(i).getItem().getPopularity();
+                     //   FoodItem f = new FoodItem(category.getText().toString(),name.getText().toString(),imageid,Double.parseDouble(price.getText().toString()),Integer.parseInt(calories.getText().toString()),Integer.parseInt(time.getText().toString()),1);
+
+                    //    Cart.getInstance().cartItemList.set(i,Cart.getInstance().cartItemList.get(i)).setItem(Cart.getInstance().cartItemList.get(i).getItem().setPopularity(pop));
                     }
                     Order order = new Order(Cart.getInstance().cartItemList, totalPrice, LoginContext.currentUser.getEmail(), orderPlacementTime, pickupTimeVal, totalTime);
 
