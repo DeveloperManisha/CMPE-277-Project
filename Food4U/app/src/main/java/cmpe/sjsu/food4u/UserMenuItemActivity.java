@@ -36,8 +36,11 @@ public class UserMenuItemActivity extends AppCompatActivity {
     DatabaseReference dbReference;
     RecyclerView categoryMenu;
     LinearLayoutManager rLayoutManager;
+
     private String menuFilter;
     FirebaseRecyclerAdapter<FoodItem,MenuViewHolder> adapter;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
