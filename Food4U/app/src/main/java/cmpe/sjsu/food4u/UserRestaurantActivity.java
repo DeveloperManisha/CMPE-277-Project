@@ -17,7 +17,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,10 +25,10 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.MutableData;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.Transaction;
 import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
 
 public class UserRestaurantActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -40,7 +39,9 @@ public class UserRestaurantActivity extends AppCompatActivity
     Button drink;
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference ref = database.getReference("orders");
+    String message;
 
+    private DatabaseReference dBMenu = database.getReference("MenuItems");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,6 +118,8 @@ public class UserRestaurantActivity extends AppCompatActivity
             moveTocart();
         } else if (id == R.id.logout) {
             logout();
+        } else if (id == R.id.orders) {
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -144,6 +147,10 @@ public class UserRestaurantActivity extends AppCompatActivity
     }
 
     public void moveTocart() {
+
+        startActivity(new Intent(getApplicationContext(), CartActivity.class));
+    }
+    public void moveToOrders() {
 
         startActivity(new Intent(getApplicationContext(), CartActivity.class));
     }
@@ -222,7 +229,7 @@ public class UserRestaurantActivity extends AppCompatActivity
                 //  String message = dataSnapshot.child("cartItemsList").child("0").child("item").child("name").getValue().toString();
                 //   Iterable t = dataSnapshot.getChildren();
                 for (DataSnapshot alert : dataSnapshot.getChildren()) {
-                    Log.d("image_name", (String) alert.child("cartItemsList").child("0").child("item").child("name").getValue());
+                    message = (String) alert.child("cartItemsList").child("0").child("item").child("name").getValue();
                 }
             }
 
