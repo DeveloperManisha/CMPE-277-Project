@@ -33,5 +33,6 @@
     <string name="time">Time</string>
     <string name="total_price">Total Price</string>
     <string name="place_order">Place Order</string>
+    <string name="picture">Picture</string>
 
 </resources>
