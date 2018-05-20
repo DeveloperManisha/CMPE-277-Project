@@ -15,10 +15,10 @@
         android:id="@+id/categoryName"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:textSize="20dp"
-        android:text="Demo"
-        android:textStyle="bold"
         android:gravity="center_horizontal"
-        android:textColor="@color/colorPrimary"/>
+        android:text="Demo"
+        android:textColor="@android:color/black"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
 </LinearLayout>

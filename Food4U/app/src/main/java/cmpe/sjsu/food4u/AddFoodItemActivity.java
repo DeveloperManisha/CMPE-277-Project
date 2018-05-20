@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -26,7 +27,7 @@ import java.util.UUID;
 public class AddFoodItemActivity extends AppCompatActivity {
 
     private EditText category;
-    private EditText picture;
+    private TextView picture;
     private EditText price;
     private EditText calories;
     private EditText time;
@@ -44,10 +45,10 @@ public class AddFoodItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_food_item);
         category = (EditText)findViewById(R.id.category);
-        picture = (EditText)findViewById(R.id.picture);
+        picture = (TextView) findViewById(R.id.picture);
         price = (EditText)findViewById(R.id.unitPrice);
         calories=(EditText)findViewById(R.id.calories);
-        time=(EditText)findViewById(R.id.time);
+        time=(EditText)findViewById(R.id.preparationtime);
         name=(EditText)findViewById(R.id.name);
         add = findViewById(R.id.addFoodItem);
 
@@ -62,10 +63,7 @@ public class AddFoodItemActivity extends AppCompatActivity {
                 else
                     imageid="";
 
-                FoodItem f = new FoodItem(category.getText().toString(),name.getText().toString(),imageid,Double.parseDouble(price.getText().toString()),Integer.parseInt(calories.getText().toString()),Integer.parseInt(time.getText().toString()));
-                dbReference.push().setValue(f);
-                Intent intent = new Intent(AddFoodItemActivity.this,RestaurantActivity.class);
-                AddFoodItemActivity.this.startActivity(intent);
+
             }
         });
         uploadImage = findViewById(R.id.uploadImage);
@@ -91,6 +89,7 @@ public class AddFoodItemActivity extends AppCompatActivity {
                 && data != null && data.getData() != null )
         {
             menuItemPicURl = data.getData();
+            picture.setText("Image Selected");
             System.out.println("********"+menuItemPicURl+"**********");
         }
     }
@@ -109,7 +108,12 @@ public class AddFoodItemActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             progressDialog.dismiss();
+
                             Toast.makeText(AddFoodItemActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
+                            FoodItem f = new FoodItem(category.getText().toString(),name.getText().toString(),imageid,Double.parseDouble(price.getText().toString()),Integer.parseInt(calories.getText().toString()),Integer.parseInt(time.getText().toString()),1);
+                            dbReference.push().setValue(f);
+                            Intent intent = new Intent(AddFoodItemActivity.this,RestaurantActivity.class);
+                            AddFoodItemActivity.this.startActivity(intent);
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {

@@ -14,8 +14,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        //AWSProvider.initialize(getApplicationContext());
+        //Intent intent = new Intent(LoginActivity.this,UserActivity.class);
+        //LoginActivity.this.startActivity(intent);
 
         admin = findViewById(R.id.admin);
         user = findViewById(R.id.user);

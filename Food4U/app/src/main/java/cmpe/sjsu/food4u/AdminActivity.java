@@ -24,7 +24,7 @@ public class AdminActivity extends AppCompatActivity {
                 String username = ((EditText)findViewById(R.id.username)).getText().toString();
                 String password = ((EditText)findViewById(R.id.password)).getText().toString();
                 System.out.println("Admin Username Password"+username+" "+password);
-                if(username.contentEquals("a") && password.contentEquals("a"))
+                if(username.contentEquals("admin") && password.contentEquals("admin"))
                 {
                     LoginContext.user = new User(username,true);
                     Intent intent = new Intent(AdminActivity.this,RestaurantActivity.class);
@@ -34,6 +34,10 @@ public class AdminActivity extends AppCompatActivity {
                     Toast.makeText(AdminActivity.this, "Invalid user name/password",Toast.LENGTH_SHORT).show();
             }
         });
+
+        //Sample db invoke
+        //when u pass object, id for object is automatically created
+        //Database.getInstance().setNodeOrderDetails("testNode","order2");
 
     }
 }
