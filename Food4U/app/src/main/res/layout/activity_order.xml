@@ -1,72 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent" android:orientation="vertical">
-    <LinearLayout
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:orientation="horizontal"
-        android:layout_weight="1"
-        android:background="@color/colorComplimentry">
-        <TextView
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Active Orders"
-            android:textSize="22dp"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimary"/>
-
-
-    </LinearLayout>
-    <LinearLayout
+        android:layout_height="20dp"
+        android:gravity="center"
+        android:text="Active Order Hishory"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/orderRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:orientation="horizontal"
-        android:layout_weight="1"
-        android:background="@color/colorComplimentry">
-        <TextView
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="3"
-            android:text="Order ID 1278"
-            android:gravity="center_vertical"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimary"/>
-        <Button
-            android:id="@+id/category"
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1" android:text="Cancel"></Button>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:orientation="horizontal"
-        android:layout_weight="1"
-        android:background="@color/colorComplimentry">
-        <TextView
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="3"
-            android:text="Order ID 1286"
-            android:gravity="center_vertical"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimary"/>
-        <Button
-            android:id="@+id/xyz"
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1" android:text="Cancel"></Button>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:orientation="horizontal"
-        android:layout_weight="3"
-        android:background="@color/colorComplimentry"/>
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
+    </android.support.v7.widget.RecyclerView>
 </LinearLayout>

@@ -20,6 +20,7 @@ import android.widget.Toast;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Random;
 
 public class CartActivity extends AppCompatActivity {
     DateFormat fmtDateAndTime = DateFormat.getDateTimeInstance();
@@ -159,7 +160,11 @@ public class CartActivity extends AppCompatActivity {
 
                     //    Cart.getInstance().cartItemList.set(i,Cart.getInstance().cartItemList.get(i)).setItem(Cart.getInstance().cartItemList.get(i).getItem().setPopularity(pop));
                     }
-                    Order order = new Order(Cart.getInstance().cartItemList, totalPrice, LoginContext.currentUser.getEmail(), orderPlacementTime, pickupTimeVal, totalTime);
+
+                    Random rand = new Random();
+
+                    Integer  orderId = rand.nextInt(1000) + 1;
+                    Order order = new Order(Cart.getInstance().cartItemList, totalPrice, LoginContext.currentUser.getEmail(), orderPlacementTime, pickupTimeVal, totalTime,orderId.toString(),"In Progress");
 
                     Database.getInstance().setNodeOrderDetails("orders", order);
 

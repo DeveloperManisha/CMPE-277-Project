@@ -15,18 +15,40 @@ public class Order {
     String pickupDate;
     Double totalTime;
 
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    String orderId;
+    String status;
+
+    public Order(ArrayList<CartItem> cartItemsList, Double totalPrice, String useremail, String orderDate, String pickupDate, Double totalTime, String orderId, String status) {
+        this.cartItemsList = cartItemsList;
+        this.totalPrice = totalPrice;
+        this.useremail = useremail;
+        this.orderDate = orderDate;
+        this.pickupDate = pickupDate;
+        this.totalTime = totalTime;
+        this.orderId = orderId;
+        this.status = status;
+    }
+
     public Order() {
 
     }
 
-    public Order(ArrayList<CartItem> cartItemsList, Double totalPrice, String userEmail, String orderDate, String pickupDate, Double totalTime) {
-        this.cartItemsList = cartItemsList;
-        this.orderDate = orderDate;
-        this.pickupDate = pickupDate;
-        this.totalPrice = totalPrice;
-        this.useremail = userEmail;
-        this.totalTime = totalTime;
-    }
 
     public ArrayList<CartItem> getCartItemsList() {
         return cartItemsList;
