@@ -54,7 +54,7 @@
         <service
             android:name=".BackgroundService"
             android:exported="false"></service>
-        <activity android:name=".OrderActivity"/>
+        <activity android:name=".OrderStatus"/>
         <activity android:name=".OrderResetActivity"/>
         <activity android:name=".SystemReportsActivity"/>
     </application>

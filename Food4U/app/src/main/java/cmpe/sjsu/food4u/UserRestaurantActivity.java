@@ -118,8 +118,8 @@ public class UserRestaurantActivity extends AppCompatActivity
             moveTocart();
             }
         else if (id == R.id.orders) {
-     //       Intent orderIntent=new Intent(UserRestaurantActivity.this,OrderStatus.class);
-       //     startActivity(orderIntent);
+            Intent orderIntent=new Intent(UserRestaurantActivity.this,OrderStatus.class);
+            startActivity(orderIntent);
         }
         else if (id == R.id.logout) {
             logout();
