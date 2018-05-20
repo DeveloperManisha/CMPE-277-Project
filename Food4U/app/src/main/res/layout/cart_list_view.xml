@@ -9,9 +9,8 @@
         android:layout_weight="1"
         android:padding="@dimen/activity_horizontal_margin"
         android:text="Demo"
-        android:textStyle="bold"
-        android:textSize="18dp"
-        android:textColor="@color/colorPrimary" />
+        android:textColor="@android:color/black"
+        android:textSize="18dp" />
 
     <TextView
         android:id="@+id/itemPrice"
@@ -20,9 +19,8 @@
         android:layout_weight="1"
         android:padding="@dimen/activity_horizontal_margin"
         android:text="Demo"
-        android:textStyle="bold"
-        android:textSize="18dp"
-        android:textColor="@color/colorPrimary" />
+        android:textColor="@android:color/black"
+        android:textSize="18dp" />
 
 
     <EditText
@@ -31,9 +29,8 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:ems="10"
+        android:inputType="number"
         android:padding="@dimen/activity_horizontal_margin"
         android:text="Demo"
-        android:textStyle="bold"
-        android:inputType="number"
-        android:textColor="@color/colorPrimary"/>
+        android:textColor="@android:color/black" />
 </LinearLayout>

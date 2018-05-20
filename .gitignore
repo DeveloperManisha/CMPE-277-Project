@@ -17,6 +17,8 @@ out/
 .gradle/
 build/
 
+
+
 # Local configuration file (sdk path, etc)
 local.properties
 
@@ -40,6 +42,7 @@ captures/
 .idea/dictionaries
 .idea/libraries
 .idea/dictionaries# IntelliJ
+.idea/caches/build_file_checksums.ser
 
 *.iml
 .idea/workspace.xml

@@ -137,7 +137,13 @@ public class RestaurantActivity extends AppCompatActivity
 
         if (id == R.id.logout) {
             logout();
-
+        }
+        else if (id==R.id.reports){
+            systemreports();
+        }
+        else if (id==R.id.reset)
+        {
+            orderreset();
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -287,5 +293,17 @@ public class RestaurantActivity extends AppCompatActivity
                     }
                 });
     }
+
+    public void orderreset()
+    {
+        startActivity(new Intent(getApplicationContext(), OrderResetActivity.class));
+    }
+
+    public void systemreports()
+    {
+        startActivity(new Intent(getApplicationContext(), SystemReportsActivity.class));
+    }
+
+
 }
 

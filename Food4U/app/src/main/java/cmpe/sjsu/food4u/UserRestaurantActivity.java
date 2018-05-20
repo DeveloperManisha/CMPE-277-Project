@@ -116,7 +116,12 @@ public class UserRestaurantActivity extends AppCompatActivity
 
         if (id == R.id.cart) {
             moveTocart();
-        } else if (id == R.id.logout) {
+            }
+        else if (id == R.id.orders) {
+     //       Intent orderIntent=new Intent(UserRestaurantActivity.this,OrderStatus.class);
+       //     startActivity(orderIntent);
+        }
+        else if (id == R.id.logout) {
             logout();
         } else if (id == R.id.orders) {
 
@@ -146,8 +151,7 @@ public class UserRestaurantActivity extends AppCompatActivity
                 });
     }
 
-    public void moveTocart() {
-
+    public void moveTocart(){
         startActivity(new Intent(getApplicationContext(), CartActivity.class));
     }
     public void moveToOrders() {
