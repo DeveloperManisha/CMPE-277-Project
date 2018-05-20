@@ -13,5 +13,25 @@
     <string name="admin">Admin</string>
     <string name="sign_in_sign_up">Sign In /Sign up</string>
     <string name="user">user</string>
+    <string name="category">Category</string>
+    <string name="select_image">Select Image</string>
+    <string name="calories">Calories</string>
+    <string name="preparation_time">Preparation Time</string>
+    <string name="calories_in_cal">Calories (in Cal)</string>
+    <string name="time_in_mins">Time (in mins)</string>
+    <string name="add_food_item">Add Food Item</string>
+    <string name="price_in">Price (in $)</string>
+    <string name="add_sign">+</string>
+    <string name="unit_price">Unit Price</string>
+    <string name="new_food_item_details">New Food Item Details</string>
+    <string name="eg_cake">eg Cake</string>
+    <string name="eg_dessert">eg Dessert</string>
+    <string name="name">Name</string>
+    <string name="my_cart">My Cart</string>
+    <string name="date">Date</string>
+    <string name="pickup_time">Pickup Time</string>
+    <string name="time">Time</string>
+    <string name="total_price">Total Price</string>
+    <string name="place_order">Place Order</string>
 
 </resources>

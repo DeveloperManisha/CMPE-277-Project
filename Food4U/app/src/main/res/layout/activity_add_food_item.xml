@@ -13,7 +13,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="New Food Item Details"
+            android:text="@string/new_food_item_details"
             android:textColor="@android:color/black"
             android:textSize="22dp" />
 
@@ -31,7 +31,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Category"
+            android:text="@string/category"
             android:textAlignment="viewStart"
             android:textColor="?attr/colorPrimaryDark"
             android:textSize="18dp" />
@@ -42,7 +42,7 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:ems="10"
-            android:hint="eg Dessert"
+            android:hint="@string/eg_dessert"
             android:inputType="text"
             android:textColor="@android:color/black" />
 
@@ -59,7 +59,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Name"
+            android:text="@string/name"
             android:textAlignment="viewStart"
             android:textColor="?attr/colorPrimaryDark"
             android:textSize="18dp" />
@@ -70,7 +70,7 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:ems="10"
-            android:hint="eg Cake"
+            android:hint="@string/eg_cake"
             android:inputType="text"
             android:textColor="@android:color/black" />
 
@@ -98,7 +98,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:hint="Select Image"
+            android:hint="@string/select_image"
             android:textAlignment="viewStart"
             android:textSize="18dp"/>
 
@@ -108,7 +108,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:background="@android:color/darker_gray"
-            android:text=" + "
+            android:text="@string/add_sign"
             android:textSize="18dp" />
 
     </LinearLayout>
@@ -124,10 +124,10 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Unit Price"
+            android:text="@string/unit_price"
             android:textAlignment="viewStart"
             android:textColor="?attr/colorPrimaryDark"
-            android:textSize="18dp" />
+            android:textSize="18sp" />
 
         <EditText
             android:id="@+id/unitPrice"
@@ -135,7 +135,7 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:ems="10"
-            android:hint="Price (in $)"
+            android:hint="@string/price_in"
             android:inputType="number"
             android:textColor="@android:color/black" />
 
@@ -152,7 +152,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Calories"
+            android:text="@string/calories"
             android:textAlignment="viewStart"
             android:textColor="?attr/colorPrimaryDark"
             android:textSize="18dp" />
@@ -163,7 +163,7 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:ems="10"
-            android:hint="Calories (in Cal)"
+            android:hint="@string/calories_in_cal"
             android:inputType="number"
             android:textColor="@android:color/black" />
 
@@ -180,7 +180,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Preparation Time"
+            android:text="@string/preparation_time"
             android:textAlignment="viewStart"
             android:textColor="?attr/colorPrimaryDark"
             android:textSize="18dp" />
@@ -191,7 +191,7 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:ems="10"
-            android:hint="Time (in mins)"
+            android:hint="@string/time_in_mins"
             android:inputType="number"
             android:textColor="@android:color/black" />
     </LinearLayout>
@@ -209,7 +209,7 @@
             android:layout_marginRight="0.75in"
             android:layout_weight="1"
             android:background="@android:color/darker_gray"
-            android:text="Add Food Item"
+            android:text="@string/add_food_item"
             android:textColor="@android:color/black" />
     </LinearLayout>
 
