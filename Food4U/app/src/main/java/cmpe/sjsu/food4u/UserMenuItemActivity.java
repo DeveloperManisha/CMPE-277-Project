@@ -93,7 +93,7 @@ public class UserMenuItemActivity extends AppCompatActivity {
                         .into(holder.menuCategoryImage);
 
                 String textString = model.getName()+"\n\n"+"Calories :" + model.getCalories()+
-                        "\n\n"+"Price : "+model.getPrice();
+                        "\n\n"+"Price : "+model.getPrice() + "\n\n"+"Popularity : "+model.getPopularity() ;
 
                 System.out.println("User menu description:"+textString);
                 holder.menuCategoryName.setText(textString);
@@ -107,7 +107,7 @@ public class UserMenuItemActivity extends AppCompatActivity {
                                                       public void onClick(View v, int posistion, boolean flag) {
 
                                                           String msg = selectedFoodItem.getName()+" has been added to cart";
-                                                          Toast.makeText(getApplicationContext(), selectedFoodItem.getName(),Toast.LENGTH_LONG).show();
+                                                          Toast.makeText(getApplicationContext(), msg,Toast.LENGTH_LONG).show();
                                                           CartItem item = new CartItem(selectedFoodItem,1);
                                                           Cart.getInstance().addToCart(item);
                                                       }

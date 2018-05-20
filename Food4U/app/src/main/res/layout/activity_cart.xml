@@ -1,55 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent" android:orientation="vertical" android:background="@color/colorComplimentry">
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:textAlignment="center"
-        android:text=" My Cart"
-        android:textSize="30dp"
-        android:textColor="@color/colorPrimary" />
 
-    <ListView
-        android:id="@+id/cartListView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView"
-        android:layout_marginTop="13dp"
-        android:divider="#000"
-        android:dividerHeight="2dp"
-        android:listSelector="@color/colorBright" />
+        android:layout_height="0dip"
+        android:layout_weight="9"
+        android:orientation="vertical"
+        android:background="@color/colorComplimentry">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:background="@color/colorDim">
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Food Item"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            android:textColor="@color/colorPrimary"/>
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Price"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            android:textColor="@color/colorPrimary"/>
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Quantity"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            android:textColor="@color/colorPrimary"/>
+    </LinearLayout>
+
+        <ListView
+            android:id="@+id/cartListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView"
+            android:layout_marginTop="13dp"
+            android:background="@color/colorDim"
+            android:divider="@color/colorComplimentry"
+            android:dividerHeight="10dp"
+            android:listSelector="@color/colorBright" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="20dp"
-        android:background="@color/colorComplimentry">
+        android:layout_marginTop="10dp"
+        android:background="@color/colorDim">
         <TextView
             android:layout_width="0dip"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:text="Pickup Time"
             android:textSize="18dp"
             android:textStyle="bold"
             android:textColor="@color/colorPrimary"/>
-        <EditText
+        <Button
+            android:id="@+id/pickupDate"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:text="Date" />
+
+        <Button
             android:id="@+id/pickupTime"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:ems="10"
-            android:hint="pickup time"
-            android:inputType="text" />
+            android:text="Time"
+            android:visibility="invisible"
+            android:background="@color/colorPrimary"/>
 
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:orientation="horizontal"
-        android:background="@color/colorComplimentry">
+        android:layout_marginTop="10dp"
+        android:background="@color/colorDim">
         <TextView
             android:layout_width="0dip"
             android:layout_height="wrap_content"
@@ -57,6 +100,7 @@
             android:text="Total Price"
             android:textSize="18dp"
             android:textStyle="bold"
+            android:gravity="center_vertical"
             android:textColor="@color/colorPrimary"/>
         <TextView
             android:id="@+id/totalPrice"
@@ -65,19 +109,28 @@
             android:layout_weight="1"
             android:textSize="18dp"
             android:textStyle="bold"
+            android:gravity="center_vertical"
             android:textColor="@color/colorPrimary"
             android:text=""/>
 
     </LinearLayout>
 
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:background="@color/colorComplimentry">
     <Button
         android:id="@+id/placeOrder"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:text="Place Order"
         android:textSize="20dp"
-        android:textColor="@color/colorAccent"
+        android:textColor="#FFF"
         android:background="@color/colorPrimary"
         android:textStyle="bold" />
+    </LinearLayout>
 
 </LinearLayout>
