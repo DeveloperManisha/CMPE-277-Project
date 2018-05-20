@@ -34,5 +34,7 @@
     <string name="total_price">Total Price</string>
     <string name="place_order">Place Order</string>
     <string name="picture">Picture</string>
+    <string name="demo">Demo</string>
+    <string name="todo">TODO</string>
 
 </resources>

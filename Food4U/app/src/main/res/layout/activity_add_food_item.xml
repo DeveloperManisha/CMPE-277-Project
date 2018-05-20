@@ -36,14 +36,13 @@
             android:textColor="?attr/colorPrimaryDark"
             android:textSize="18sp" />
 
-        <EditText
+        <Spinner
             android:id="@+id/category"
             android:layout_width="0dip"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:ems="10"
-            android:hint="@string/eg_dessert"
-            android:inputType="text"
+            android:background="@android:drawable/btn_dropdown"
+            android:spinnerMode="dropdown"
             android:textColor="@android:color/black" />
 
     </LinearLayout>
