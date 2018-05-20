@@ -14,7 +14,7 @@ public class Order {
     String orderDate;
     String pickupDate;
     Double totalTime;
-
+    private String status;
     public Order() {
 
     }
@@ -26,6 +26,7 @@ public class Order {
         this.totalPrice = totalPrice;
         this.useremail = userEmail;
         this.totalTime = totalTime;
+        this.status="0";
     }
 
     public ArrayList<CartItem> getCartItemsList() {
@@ -74,6 +75,14 @@ public class Order {
 
     public void setTotalTime(Double totalTime) {
         this.totalPrice = totalTime;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
 }
