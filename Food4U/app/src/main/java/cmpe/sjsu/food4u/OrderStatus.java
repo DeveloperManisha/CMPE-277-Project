@@ -52,6 +52,7 @@ public class OrderStatus extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.listOrders);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
+        recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(layoutManager);
 
         final Query query = FirebaseDatabase.getInstance()
@@ -107,8 +108,6 @@ public class OrderStatus extends AppCompatActivity {
             protected void populateViewHolder(OrderViewHolder viewHolder, Order model, int position) {
             }
         };
-
-        recyclerView.setAdapter(adapter);
         Log.d("A Debug Tag", "Value a: " + adapter);
     }
 

@@ -36,5 +36,8 @@
     <string name="picture">Picture</string>
     <string name="demo">Demo</string>
     <string name="todo">TODO</string>
+    <string name="_1">#1</string>
+    <string name="status">Status</string>
+    <string name="email2">Email</string>
 
 </resources>

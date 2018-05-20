@@ -44,8 +44,9 @@ public class CartActivity extends Activity {
         totalPrice = findViewById(R.id.totalPrice);
         //set price on view
         Double tPrice = 0.0;
-        for (int i = 0; i < Cart.getInstance().cartItemList.size(); i++)
+        for (int i = 0; i < Cart.getInstance().cartItemList.size(); i++) {
             tPrice += Cart.getInstance().cartItemList.get(i).getItem().getPrice() * Cart.getInstance().cartItemList.get(i).getQuantity();
+        }
 
         totalPrice.setText(tPrice.toString());
 
