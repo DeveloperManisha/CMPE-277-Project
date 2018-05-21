@@ -3,7 +3,7 @@
     android:layout_height="match_parent" android:orientation="vertical">
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="20dp"
+        android:layout_height="50dp"
         android:gravity="center"
         android:text="Active Order Hishory"
         android:textSize="18dp"

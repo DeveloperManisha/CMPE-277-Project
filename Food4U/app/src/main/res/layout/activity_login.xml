@@ -16,7 +16,7 @@
         android:layout_marginBottom="43dp"
         android:text="Sign In /Sign up"
         android:textAlignment="center"
-        android:textColor="@color/colorOlive"
+        android:textColor="@color/colorPrimary"
         android:textSize="30dp"
         android:textStyle="italic" />
 
@@ -35,7 +35,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
-            android:background="@color/colorOlive"
+            android:background="@color/colorPrimary"
             android:text="Admin" />
 
         <Button
@@ -48,7 +48,7 @@
             android:layout_marginRight="5dp"
             android:layout_toRightOf="@+id/signup"
             android:layout_weight="1"
-            android:background="@color/colorOlive"
+            android:background="@color/colorPrimary"
             android:text="user" />
     </LinearLayout>
 

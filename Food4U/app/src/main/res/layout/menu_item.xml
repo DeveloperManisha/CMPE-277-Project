@@ -21,6 +21,6 @@
         android:textSize="18dp"
         android:textStyle="bold"
         android:background="@color/colorComplimentry"
-        android:textColor="@color/colorOlive"/>
+        android:textColor="@color/colorBlack"/>
 
 </LinearLayout>

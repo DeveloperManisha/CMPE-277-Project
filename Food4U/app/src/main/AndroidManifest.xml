@@ -20,7 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AdminActivity">
+        <activity android:name=".AdminActivity" android:label="Admin Sign In">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="cmpe.sjsu.food4u.LoginActivity" />
@@ -43,21 +43,29 @@
             android:name=".UserRestaurantActivity"
             android:label="@string/title_activity_user_restaurant"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".CartActivity" android:label="My Cart">
+        <activity
+            android:name=".CartActivity"
+            android:label="My Cart">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="cmpe.sjsu.food4u.UserRestaurantActivity" />
         </activity>
-        <activity android:name=".UserMenuItemActivity" android:label="Menu Catalog">
+        <activity
+            android:name=".UserMenuItemActivity"
+            android:label="Menu Catalog">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="cmpe.sjsu.food4u.UserRestaurantActivity" />
         </activity>
-        <activity android:name=".OrderActivity" android:label="My Orders">
+        <activity
+            android:name=".OrderActivity"
+            android:label="My Orders">
             <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value="cmpe.sjsu.food4u.UserRestaurantActivity" />
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cmpe.sjsu.food4u.UserRestaurantActivity" />
         </activity>
+        <activity android:name=".StatusReportActivity" />
+        <activity android:name=".PoularityReportActivity"></activity>
     </application>
 
 </manifest>

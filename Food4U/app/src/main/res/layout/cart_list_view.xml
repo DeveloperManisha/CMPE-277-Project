@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:orientation="horizontal" android:background="@color/colorDim">
+    android:layout_height="match_parent" android:orientation="horizontal" android:background="@color/colorComplimentry">
 
     <TextView
         android:id="@+id/itemName"
@@ -9,9 +9,9 @@
         android:layout_weight="1"
         android:padding="@dimen/activity_horizontal_margin"
         android:text="Demo"
-        android:textStyle="bold"
+       
         android:textSize="18dp"
-        android:textColor="@color/colorPrimary" />
+        android:textColor="@color/colorBlack" />
 
     <TextView
         android:id="@+id/itemPrice"
@@ -20,9 +20,9 @@
         android:layout_weight="1"
         android:padding="@dimen/activity_horizontal_margin"
         android:text="Demo"
-        android:textStyle="bold"
+       
         android:textSize="18dp"
-        android:textColor="@color/colorPrimary" />
+        android:textColor="@color/colorBlack" />
 
 
     <EditText
@@ -33,7 +33,7 @@
         android:ems="10"
         android:padding="@dimen/activity_horizontal_margin"
         android:text="Demo"
-        android:textStyle="bold"
+       
         android:inputType="number"
-        android:textColor="@color/colorPrimary"/>
+        android:textColor="@color/colorBlack"/>
 </LinearLayout>
