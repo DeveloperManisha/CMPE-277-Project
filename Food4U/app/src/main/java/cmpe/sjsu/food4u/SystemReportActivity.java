@@ -16,7 +16,7 @@ public class SystemReportActivity extends AppCompatActivity {
         Button orderreport= findViewById(R.id.getOrderReport);
         orderreport.setOnClickListener(generateOrderReports);
         Button popularityreport= findViewById(R.id.getPopularity);
-        orderreport.setOnClickListener(generatePopularityReports);
+        popularityreport.setOnClickListener(generatePopularityReports);
 
 
     }

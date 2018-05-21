@@ -1,9 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="cmpe.sjsu.food4u.StatusReportActivity">
-
-</android.support.constraint.ConstraintLayout>
+    android:layout_marginTop="5dp"
+    android:orientation="vertical"
+    android:background="@color/colorComplimentry">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:background="@color/colorComplimentry">
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="Select Start Date"
+            android:textSize="18dp"
+            />
+        <Button
+            android:id="@+id/startDate"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorBlack"
+            android:textColor="@color/colorComplimentry"
+            android:text="Date" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:background="@color/colorComplimentry">
+        <TextView
+            android:layout_width="0dip"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="Select End Date "
+            android:textSize="18dp"
+            />
+        <Button
+            android:id="@+id/endDate"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorBlack"
+            android:textColor="@color/colorComplimentry"
+            android:text="Date" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical"
+        android:layout_weight="7"
+        android:background="@color/colorComplimentry">
+        <Button
+            android:id="@+id/getreport"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:layout_margin="5dp"
+            android:background="@color/colorBlack"
+            android:textColor="@color/colorComplimentry"
+            android:text="Fetch Orders" />
+    </LinearLayout>
+</LinearLayout>
