@@ -5,6 +5,7 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -19,8 +20,9 @@ import android.widget.Toast;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Random;
 
-public class CartActivity extends Activity {
+public class CartActivity extends AppCompatActivity {
     DateFormat fmtDateAndTime = DateFormat.getDateTimeInstance();
     ListView cartListView;
     Button placeOrder;
@@ -44,9 +46,9 @@ public class CartActivity extends Activity {
         totalPrice = findViewById(R.id.totalPrice);
         //set price on view
         Double tPrice = 0.0;
-        for (int i = 0; i < Cart.getInstance().cartItemList.size(); i++) {
+
+        for (int i = 0; i < Cart.getInstance().cartItemList.size(); i++)
             tPrice += Cart.getInstance().cartItemList.get(i).getItem().getPrice() * Cart.getInstance().cartItemList.get(i).getQuantity();
-        }
 
         totalPrice.setText(tPrice.toString());
 
@@ -111,7 +113,7 @@ public class CartActivity extends Activity {
         };
 
 
-        pickupTime = (Button) findViewById(R.id.pickupTime);
+        pickupTime = findViewById(R.id.pickupTime);
         pickupTime.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -159,7 +161,12 @@ public class CartActivity extends Activity {
 
                     //    Cart.getInstance().cartItemList.set(i,Cart.getInstance().cartItemList.get(i)).setItem(Cart.getInstance().cartItemList.get(i).getItem().setPopularity(pop));
                     }
-                    Order order = new Order(Cart.getInstance().cartItemList, totalPrice, LoginContext.currentUser.getEmail(), orderPlacementTime, pickupTimeVal, totalTime);
+
+
+                    Random rand = new Random();
+
+                    Integer  orderId = rand.nextInt(1000) + 1;
+                    Order order = new Order(Cart.getInstance().cartItemList, totalPrice, LoginContext.currentUser.getEmail(), orderPlacementTime, pickupTimeVal, totalTime,orderId.toString(),"In Progress");
 
                     Database.getInstance().setNodeOrderDetails("orders", order);
 

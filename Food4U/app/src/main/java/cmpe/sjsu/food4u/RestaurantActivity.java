@@ -203,7 +203,7 @@ public class RestaurantActivity extends AppCompatActivity
                                                                                   DataSnapshot firstChild = dataSnapshot.getChildren().iterator().next();
                                                                                   firstChild.getRef().removeValue();
                                                                               }
-                                                                              String msg= "Deleted Food Item "+ selectedFoodItem.getCategory();
+                                                                              String msg= "Deleted Food Item "+ selectedFoodItem.getName();
                                                                               Toast.makeText(RestaurantActivity.this, msg,Toast.LENGTH_LONG).show();
                                                                           }
 
@@ -296,12 +296,12 @@ public class RestaurantActivity extends AppCompatActivity
 
     public void orderreset()
     {
-        startActivity(new Intent(getApplicationContext(), OrderResetActivity.class));
+        //startActivity(new Intent(getApplicationContext(), OrderResetActivity.class));
     }
 
     public void systemreports()
     {
-        startActivity(new Intent(getApplicationContext(), SystemReportsActivity.class));
+       // startActivity(new Intent(getApplicationContext(), SystemReportsActivity.class));
     }
 
 
