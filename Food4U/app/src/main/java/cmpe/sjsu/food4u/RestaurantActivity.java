@@ -139,6 +139,9 @@ public class RestaurantActivity extends AppCompatActivity
             logout();
 
         }
+        if (id == R.id.reports) {
+            startActivity(new Intent(getApplicationContext(), SystemReportActivity.class));
+        }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

@@ -20,7 +20,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AdminActivity" android:label="Admin Sign In">
+        <activity
+            android:name=".AdminActivity"
+            android:label="Admin Sign In">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="cmpe.sjsu.food4u.LoginActivity" />
@@ -64,8 +66,21 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="cmpe.sjsu.food4u.UserRestaurantActivity" />
         </activity>
-        <activity android:name=".StatusReportActivity" />
-        <activity android:name=".PoularityReportActivity"></activity>
+        <activity android:name=".StatusReportActivity"  android:label="Order Reports" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cmpe.sjsu.food4u.RestaurantActivity" />
+        </activity>
+        <activity android:name=".PoularityReportActivity"  android:label="Popularity Reports">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="cmpe.sjsu.food4u.RestaurantActivity" />
+        </activity>
+        <activity android:name=".SystemReportActivity"  android:label="Admin System Reports">
+            <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="cmpe.sjsu.food4u.RestaurantActivity" />
+        </activity>
     </application>
 
 </manifest>

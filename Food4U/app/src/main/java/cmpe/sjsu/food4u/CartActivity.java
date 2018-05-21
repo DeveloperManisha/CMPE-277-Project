@@ -3,8 +3,10 @@ package cmpe.sjsu.food4u;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -34,6 +36,7 @@ public class CartActivity extends AppCompatActivity {
     String pickupTimeVal = null;
     Boolean flag = false;
     final long sevenDays = 1000*60*60*24*7;
+    Boolean orderCancel = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -154,6 +157,8 @@ public class CartActivity extends AppCompatActivity {
 
                     for (int i = 0; i < Cart.getInstance().cartItemList.size(); i++) {
                         totalPrice += Cart.getInstance().cartItemList.get(i).getItem().getPrice() * Cart.getInstance().cartItemList.get(i).getQuantity();
+                        if(Cart.getInstance().cartItemList.get(i).getQuantity()>50);
+                            orderCancel=true;
                         totalTime += Cart.getInstance().cartItemList.get(i).getItem().getTime();
                       //  pop = Cart.getInstance().cartItemList.get(i).getItem().getPopularity();
                      //   FoodItem f = new FoodItem(category.getText().toString(),name.getText().toString(),imageid,Double.parseDouble(price.getText().toString()),Integer.parseInt(calories.getText().toString()),Integer.parseInt(time.getText().toString()),1);
@@ -169,13 +174,17 @@ public class CartActivity extends AppCompatActivity {
                     Database.getInstance().setNodeOrderDetails("orders", order);
 
 
-                    Toast.makeText(getApplicationContext(), "Order placed Successfully", Toast.LENGTH_LONG).show();
+                    if(orderCancel)
+                        showPickupTimeConflictDialog();
+                    else {
+                        Toast.makeText(getApplicationContext(), "Order placed Successfully", Toast.LENGTH_LONG).show();
 
-                    Cart.getInstance().cartItemList.clear();
-                    //move to next activity
-                    Intent intent = new Intent(getApplicationContext(), UserRestaurantActivity.class);
+                        Cart.getInstance().cartItemList.clear();
+                        //move to next activity
+                        Intent intent = new Intent(getApplicationContext(), UserRestaurantActivity.class);
 
-                    startActivity(intent);
+                        startActivity(intent);
+                    }
                 }
                 else{
                     Toast.makeText(CartActivity.this, "Please select date and time correctly!!",
@@ -184,5 +193,19 @@ public class CartActivity extends AppCompatActivity {
             }
 
         });
+    }
+    public void showPickupTimeConflictDialog(){
+        AlertDialog.Builder dialog = new AlertDialog.Builder(CartActivity.this);
+        dialog.setCancelable(false);
+        dialog.setTitle("Order Canceled");
+        dialog.setMessage("Please select another pickup time and order again.Your order request has been canceled." );
+        dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int id) {
+            }
+        });
+
+        final AlertDialog alert = dialog.create();
+        alert.show();
     }
 }
