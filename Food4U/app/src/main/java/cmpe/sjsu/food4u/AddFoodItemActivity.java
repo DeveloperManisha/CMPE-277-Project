@@ -59,7 +59,7 @@ public class AddFoodItemActivity extends AppCompatActivity {
         //get the spinner from the xml.
         Spinner category = findViewById(R.id.category);
         //create a list of items for the spinner.
-        final String[] items = new String[]{"Drink", "Appetizer", "Main Course","Dessert"};
+        final String[] items = new String[]{"drink", "appetizer", "maincourse","dessert"};
 
 
 
