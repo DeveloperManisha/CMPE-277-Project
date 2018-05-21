@@ -41,22 +41,24 @@
             android:name=".UserRestaurantActivity"
             android:label="@string/title_activity_user_restaurant"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".CartActivity">
+
+        <activity android:name=".CartActivity" android:label="My Cart">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="cmpe.sjsu.food4u.UserRestaurantActivity" />
         </activity>
-        <activity android:name=".UserMenuItemActivity">
+        <activity android:name=".UserMenuItemActivity" android:label="Menu Catalog">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="cmpe.sjsu.food4u.UserRestaurantActivity" />
         </activity>
-        <service
-            android:name=".BackgroundService"
-            android:exported="false"></service>
-        <activity android:name=".OrderActivity"/>
-        <activity android:name=".OrderResetActivity"/>
-        <activity android:name=".SystemReportsActivity"/>
+
+        <activity android:name=".OrderStatus"/>
+        <activity android:name=".OrderActivity" android:label="My Orders">
+            <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="cmpe.sjsu.food4u.UserRestaurantActivity" />
+        </activity>
     </application>
 
 </manifest>

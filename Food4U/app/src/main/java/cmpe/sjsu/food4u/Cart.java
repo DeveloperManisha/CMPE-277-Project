@@ -34,4 +34,9 @@ public class Cart {
          else
             return null;
     }
+    public void emptyCart( ){
+        for(int i=0;i<cartItemList.size();i++)
+            cartItemList.remove(i);
+
+    }
 }

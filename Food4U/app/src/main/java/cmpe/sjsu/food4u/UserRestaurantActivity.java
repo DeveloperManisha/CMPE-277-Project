@@ -51,14 +51,14 @@ public class UserRestaurantActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+      /*  FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -118,13 +118,16 @@ public class UserRestaurantActivity extends AppCompatActivity
             moveTocart();
             }
         else if (id == R.id.orders) {
-     //       Intent orderIntent=new Intent(UserRestaurantActivity.this,OrderStatus.class);
-       //     startActivity(orderIntent);
+            Intent orderIntent=new Intent(UserRestaurantActivity.this,OrderStatus.class);
+            startActivity(orderIntent);
         }
         else if (id == R.id.logout) {
             logout();
         } else if (id == R.id.orders) {
 
+        }
+        else if (id == R.id.orders) {
+            moveToOrdersAcivity();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -132,8 +135,11 @@ public class UserRestaurantActivity extends AppCompatActivity
         return true;
     }
 
-
-    public void setUsername() {
+    public void moveToOrdersAcivity(){
+        Intent intent = new Intent(getApplicationContext(),OrderActivity.class);
+        startActivity(intent);
+    }
+    public void setUsername(){
         TextView usernameTv = findViewById(R.id.username);
         usernameTv.setText(LoginContext.currentUser.getDisplayName());
     }
@@ -156,7 +162,8 @@ public class UserRestaurantActivity extends AppCompatActivity
     }
     public void moveToOrders() {
 
-        startActivity(new Intent(getApplicationContext(), CartActivity.class));
+        Intent intent = new Intent(getApplicationContext(), CartActivity.class);
+        startActivity(intent);
     }
 
     public void setupMenuCategoryUI() {

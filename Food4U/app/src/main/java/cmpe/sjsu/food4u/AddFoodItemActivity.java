@@ -6,9 +6,13 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +30,6 @@ import java.util.UUID;
 
 public class AddFoodItemActivity extends AppCompatActivity {
 
-    private EditText category;
     private TextView picture;
     private EditText price;
     private EditText calories;
@@ -40,11 +43,11 @@ public class AddFoodItemActivity extends AppCompatActivity {
     private StorageReference storageReference;
     private Uri menuItemPicURl;
     private String imageid;
+    private String spinnerContent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_food_item);
-        category = (EditText)findViewById(R.id.category);
         picture = (TextView) findViewById(R.id.picture);
         price = (EditText)findViewById(R.id.unitPrice);
         calories=(EditText)findViewById(R.id.calories);
@@ -52,6 +55,45 @@ public class AddFoodItemActivity extends AppCompatActivity {
         name=(EditText)findViewById(R.id.name);
         add = findViewById(R.id.addFoodItem);
 
+
+        //get the spinner from the xml.
+        Spinner category = findViewById(R.id.category);
+        //create a list of items for the spinner.
+        final String[] items = new String[]{"drink", "appetizer", "maincourse","dessert"};
+
+
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, items);
+
+        category.setAdapter(adapter);
+
+        category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int position, long id) {
+                switch (position) {
+                    case 0:
+                        spinnerContent = items[0];
+                        break;
+                    case 1:
+                        spinnerContent = items[1];
+                        break;
+                    case 2:
+                        spinnerContent = items[2];
+                        break;
+                    case 3:
+                        spinnerContent = items[3];
+                        break;
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // TODO Auto-generated method stub
+            }
+        });
         database = FirebaseDatabase.getInstance();
         dbReference = database.getReference("MenuItems");
         add.setOnClickListener(new View.OnClickListener() {
@@ -110,7 +152,8 @@ public class AddFoodItemActivity extends AppCompatActivity {
                             progressDialog.dismiss();
 
                             Toast.makeText(AddFoodItemActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
-                            FoodItem f = new FoodItem(category.getText().toString(),name.getText().toString(),imageid,Double.parseDouble(price.getText().toString()),Integer.parseInt(calories.getText().toString()),Integer.parseInt(time.getText().toString()),1);
+                            FoodItem f = new FoodItem(spinnerContent,name.getText().toString(),imageid,Double.parseDouble(price.getText().toString()),Integer.parseInt(calories.getText().toString()),Integer.parseInt(time.getText().toString()),1);
+
                             dbReference.push().setValue(f);
                             Intent intent = new Intent(AddFoodItemActivity.this,RestaurantActivity.class);
                             AddFoodItemActivity.this.startActivity(intent);
@@ -134,3 +177,4 @@ public class AddFoodItemActivity extends AppCompatActivity {
         }
     }
 }
+

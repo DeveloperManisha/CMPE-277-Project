@@ -1,54 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white"
-    android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:text=" My Cart"
-        android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textColorLink="@android:color/black"
-        android:textSize="18sp" />
-
-    <ListView
-        android:id="@+id/cartListView"
-        android:layout_width="match_parent"
-        android:layout_height="460dp"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView"
-        android:layout_marginTop="13dp"
-        android:divider="#000"
-        android:dividerHeight="2dp"
-        android:listSelector="@android:color/white" />
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:orientation="vertical" android:background="@color/colorComplimentry">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@android:color/white"
-        android:orientation="horizontal">
-
+        android:layout_height="0dip"
+        android:layout_weight="9"
+        android:orientation="vertical"
+        android:background="@color/colorComplimentry">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:background="@color/colorDim">
         <TextView
             android:layout_width="0dip"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="Pickup Time"
-            android:textColor="?attr/colorPrimaryDark"
-            android:textSize="18dp" />
+            android:layout_weight="1"
+            android:text="Food Item"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            android:textColor="@color/colorPrimary"/>
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Price"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            android:textColor="@color/colorPrimary"/>
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Quantity"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            android:textColor="@color/colorPrimary"/>
+    </LinearLayout>
 
+        <ListView
+            android:id="@+id/cartListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView"
+            android:layout_marginTop="13dp"
+            android:background="@color/colorDim"
+            android:divider="@color/colorComplimentry"
+            android:dividerHeight="10dp"
+            android:listSelector="@color/colorBright" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorDim">
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Pickup Time"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"/>
         <Button
             android:id="@+id/pickupDate"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:layout_weight="1"
-            android:background="@android:color/darker_gray"
+            android:background="@color/colorPrimary"
             android:text="Date" />
 
         <Button
@@ -57,47 +83,54 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Time"
-            android:visibility="invisible" />
-            android:background="@android:color/darker_gray"
-            android:text="Time" />
+            android:visibility="invisible"
+            android:background="@color/colorPrimary"/>
 
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        android:orientation="horizontal">
-
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorDim">
         <TextView
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:text="Total Price"
-            android:textColor="?attr/colorPrimaryDark"
-            android:textSize="18dp" />
-
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            android:textColor="@color/colorPrimary"/>
         <TextView
             android:id="@+id/totalPrice"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text=""
-            android:textColor="@android:color/black"
             android:textSize="18dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            android:textColor="@color/colorPrimary"
+            android:text=""/>
 
     </LinearLayout>
 
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:background="@color/colorComplimentry">
     <Button
         android:id="@+id/placeOrder"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginLeft="0.75in"
-        android:layout_marginRight="0.75in"
-        android:background="@android:color/darker_gray"
         android:text="Place Order"
-        android:textColor="@android:color/black"
-        android:textSize="18dp" />
+        android:textSize="20dp"
+        android:textColor="#FFF"
+        android:background="@color/colorPrimary"
+        android:textStyle="bold" />
+    </LinearLayout>
 
 </LinearLayout>

@@ -52,35 +52,6 @@ public class CartAdapter extends ArrayAdapter<CartItem> {
 
         quantity = (EditText) listItem.findViewById(R.id.itemQuantity);
         quantity.setText(currentItem.getQuantity().toString());
-        quantity.addTextChangedListener(new TextWatcher() {
-            boolean _ignore = false;
-            @Override
-            public void afterTextChanged(Editable s) {
-                if (_ignore)
-                    return;
-                _ignore = true; // prevent infinite loop
-                // Change your text here.
-              itemPriceVal.setText(s.toString());
-                _ignore = false; // release, so the TextWatcher start to listen again.
-
-            }
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start,
-                                          int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start,
-                                      int before, int count) {
-               // currentItem.setQuantity(Integer.parseInt(currentItem.toString()));
-               // Double price =  currentItem.getItem().getPrice()*currentItem.getQuantity();
-                //itemPrice.setText(price.toString());
-            //    Double price =  s.toString();
-  //              itemPriceVal.setText(s.toString());
-            }
-        });
-
         return listItem;
     }
 }
